@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulta y analiza las actividades de tu explotación agrícola.">
+  <title>Historial e informes | AgroGest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/actividades.css">
+</head>
+
+<body class="admin-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard"><span class="brand-mark"
+          aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <p class="nav-label">Espacio de trabajo</p>
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon"
+            aria-hidden="true">▦</span><span>Dashboard</span></a>
+        <a class="nav-item" href="campos.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Campos</span></a>
+        <a class="nav-item" href="empleados.html"><span class="nav-icon"
+            aria-hidden="true">♙</span><span>Empleados</span></a>
+        <a class="nav-item is-active" href="actividades.html" aria-current="page"><span class="nav-icon"
+            aria-hidden="true">◷</span><span>Historial e informes</span></a>
+        <a class="nav-item" href="tipo-actividades.html"><span class="nav-icon" aria-hidden="true">✦</span><span>Tipos
+            de actividad</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+            aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="breadcrumb">Espacio de trabajo <span>/</span> Historial</p>
+          <h1>Historial e informes</h1>
+          <p>Consulta y analiza las actividades de tu explotación</p>
+        </div>
+        <div class="user-menu">
+          <div class="user-copy"><strong>Julián Moreno</strong><span>Jefe de explotación</span></div>
+          <div class="avatar" aria-label="Avatar de Julián Moreno">JM</div>
+        </div>
+      </header>
+
+      <div class="content-inner history-content">
+        <div class="history-toolbar">
+          <div>
+            <p class="section-kicker">Actividad operativa</p>
+            <h2>Resumen de actividad</h2>
+          </div><a class="export-button" href="#exportar"><span aria-hidden="true">⇩</span> Exportar informe</a>
+        </div>
+
+        <section class="summary-grid" aria-label="Resumen de actividades">
+          <article class="summary-card"><span class="summary-icon green-icon" aria-hidden="true">✦</span>
+            <div><span>Actividades registradas</span><strong>156</strong></div><small>en el período seleccionado</small>
+          </article>
+          <article class="summary-card"><span class="summary-icon orange-icon" aria-hidden="true">◷</span>
+            <div><span>Horas trabajadas</span><strong>342 <small>h</small></strong></div><small>+12.4% vs. mes
+              anterior</small>
+          </article>
+          <article class="summary-card"><span class="summary-icon lime-icon" aria-hidden="true">♙</span>
+            <div><span>Empleados con actividad</span><strong>12</strong></div><small>de 14 empleados registrados</small>
+          </article>
+          <article class="summary-card"><span class="summary-icon blue-icon" aria-hidden="true">⌂</span>
+            <div><span>Campos trabajados</span><strong>8</strong></div><small>parcelas con actividad</small>
+          </article>
+        </section>
+
+        <section class="panel filters-panel" aria-labelledby="filters-title">
+          <div class="filters-heading">
+            <div>
+              <h2 id="filters-title">Filtrar historial</h2>
+              <p>Define el período y el tipo de información que quieres consultar</p>
+            </div><span class="filter-icon" aria-hidden="true">☷</span>
+          </div>
+          <form class="history-filters" action="#historial" method="get">
+            <div class="filter-field"><label for="date-from">Fecha desde</label><input id="date-from" name="date_from"
+                type="date" value="2024-06-01"></div>
+            <div class="filter-field"><label for="date-to">Fecha hasta</label><input id="date-to" name="date_to"
+                type="date" value="2024-06-24"></div>
+            <div class="filter-field"><label for="employee">Empleado</label><select id="employee" name="employee">
+                <option>Todos los empleados</option>
+                <option>Laura Castillo</option>
+                <option>Mateo Rojas</option>
+                <option>Sofía Vargas</option>
+                <option>Diego Pérez</option>
+              </select></div>
+            <div class="filter-field"><label for="field">Campo</label><select id="field" name="field">
+                <option>Todos los campos</option>
+                <option>Parcela Norte</option>
+                <option>Parcela Sur</option>
+                <option>Campo Central</option>
+              </select></div>
+            <div class="filter-field"><label for="activity-type">Tipo de actividad</label><select id="activity-type"
+                name="activity_type">
+                <option>Todos los tipos</option>
+                <option>Riego</option>
+                <option>Poda</option>
+                <option>Siembra</option>
+                <option>Cosecha</option>
+                <option>Fertilización</option>
+              </select></div>
+            <div class="filter-actions"><button class="filter-submit" type="submit">Filtrar <span
+                  aria-hidden="true">→</span></button><a class="clear-filters" href="actividades.html">Limpiar
+                filtros</a></div>
+          </form>
+        </section>
+
+        <section class="panel history-panel" id="historial" aria-labelledby="history-title">
+          <div class="history-panel-heading">
+            <div>
+              <h2 id="history-title">Historial de actividades</h2>
+              <p>Registros de trabajo entre el 01 y el 24 de junio de 2024</p>
+            </div><span class="record-count">156 registros</span>
+          </div>
+          <div class="table-scroll">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Empleado</th>
+                  <th>Campo</th>
+                  <th>Tipo de actividad</th>
+                  <th>Descripción</th>
+                  <th>Tiempo empleado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>24 Jun, 08:42</td>
+                  <td><span class="person-cell"><span class="mini-avatar avatar-pink">LC</span> Laura Castillo</span>
+                  </td>
+                  <td>Parcela Norte</td>
+                  <td><span class="activity-tag tag-water">Riego</span></td>
+                  <td>Riego por goteo, sector 3</td>
+                  <td class="time-cell">04:30 h</td>
+                </tr>
+                <tr>
+                  <td>24 Jun, 07:15</td>
+                  <td><span class="person-cell"><span class="mini-avatar avatar-yellow">MR</span> Mateo Rojas</span>
+                  </td>
+                  <td>Parcela Sur</td>
+                  <td><span class="activity-tag tag-prune">Poda</span></td>
+                  <td>Poda de mantenimiento</td>
+                  <td class="time-cell">06:00 h</td>
+                </tr>
+                <tr>
+                  <td>23 Jun, 16:30</td>
+                  <td><span class="person-cell"><span class="mini-avatar avatar-blue">SV</span> Sofía Vargas</span></td>
+                  <td>Campo Central</td>
+                  <td><span class="activity-tag tag-seed">Siembra</span></td>
+                  <td>Siembra de hortaliza de verano</td>
+                  <td class="time-cell">03:45 h</td>
+                </tr>
+                <tr>
+                  <td>23 Jun, 11:20</td>
+                  <td><span class="person-cell"><span class="mini-avatar avatar-green">DP</span> Diego Pérez</span></td>
+                  <td>Parcela Norte</td>
+                  <td><span class="activity-tag tag-fertilize">Fertilización</span></td>
+                  <td>Aplicación de abono orgánico</td>
+                  <td class="time-cell">05:15 h</td>
+                </tr>
+                <tr>
+                  <td>22 Jun, 09:05</td>
+                  <td><span class="person-cell"><span class="mini-avatar avatar-violet">CM</span> Carlos Méndez</span>
+                  </td>
+                  <td>Parcela Este</td>
+                  <td><span class="activity-tag tag-harvest">Cosecha</span></td>
+                  <td>Recolección de lote 2</td>
+                  <td class="time-cell">07:00 h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span>Mostrando <strong>5</strong> de <strong>156</strong>
+              actividades</span><span>Última actualización: hoy, 09:32</span></div>
+        </section>
+
+        <div class="reports-heading">
+          <div>
+            <p class="section-kicker">Lectura de datos</p>
+            <h2>Informes visuales</h2>
+          </div><span>Junio 2024</span>
+        </div>
+        <section class="reports-grid" aria-label="Informes visuales">
+          <article class="panel report-card hours-report">
+            <div class="report-card-heading">
+              <div>
+                <h3>Horas por empleado</h3>
+                <p>Horas registradas este mes</p>
+              </div><span class="more-button" aria-hidden="true">•••</span>
+            </div>
+            <div class="employee-bars" role="img" aria-label="Gráfico de horas trabajadas por empleado">
+              <div class="employee-bar-row"><span>Laura C.</span>
+                <div><i style="width: 88%"></i></div><strong>74h</strong>
+              </div>
+              <div class="employee-bar-row"><span>Mateo R.</span>
+                <div><i style="width: 76%"></i></div><strong>68h</strong>
+              </div>
+              <div class="employee-bar-row"><span>Sofía V.</span>
+                <div><i style="width: 65%"></i></div><strong>58h</strong>
+              </div>
+              <div class="employee-bar-row"><span>Diego P.</span>
+                <div><i style="width: 51%"></i></div><strong>46h</strong>
+              </div>
+              <div class="employee-bar-row"><span>Carlos M.</span>
+                <div><i style="width: 42%"></i></div><strong>38h</strong>
+              </div>
+            </div>
+          </article>
+          <article class="panel report-card types-report">
+            <div class="report-card-heading">
+              <div>
+                <h3>Actividades por tipo</h3>
+                <p>Proporción del total registrado</p>
+              </div><span class="more-button" aria-hidden="true">•••</span>
+            </div>
+            <div class="types-content">
+              <div class="small-donut" role="img"
+                aria-label="Riego 32 por ciento, poda 21 por ciento, siembra 18 por ciento, cosecha 17 por ciento y fertilización 12 por ciento">
+                <span>156<small>total</small></span>
+              </div>
+              <ul class="report-legend">
+                <li><i class="legend-water"></i><span>Riego</span><b>32%</b></li>
+                <li><i class="legend-prune"></i><span>Poda</span><b>21%</b></li>
+                <li><i class="legend-seed"></i><span>Siembra</span><b>18%</b></li>
+                <li><i class="legend-harvest"></i><span>Cosecha</span><b>17%</b></li>
+                <li><i class="legend-fertilize"></i><span>Fertilización</span><b>12%</b></li>
+              </ul>
+            </div>
+          </article>
+          <article class="panel report-card fields-report">
+            <div class="report-card-heading">
+              <div>
+                <h3>Horas por campo</h3>
+                <p>Distribución de horas trabajadas</p>
+              </div><span class="more-button" aria-hidden="true">•••</span>
+            </div>
+            <div class="field-hours-table">
+              <div class="field-hours-row header"><span>Campo</span><span>Horas</span><span>Participación</span></div>
+              <div class="field-hours-row"><strong>Parcela Norte</strong><span>112 h</span>
+                <div><i style="width: 88%"></i><small>33%</small></div>
+              </div>
+              <div class="field-hours-row"><strong>Parcela Sur</strong><span>91 h</span>
+                <div><i style="width: 72%"></i><small>27%</small></div>
+              </div>
+              <div class="field-hours-row"><strong>Campo Central</strong><span>78 h</span>
+                <div><i style="width: 61%"></i><small>23%</small></div>
+              </div>
+              <div class="field-hours-row"><strong>Parcela Este</strong><span>61 h</span>
+                <div><i style="width: 48%"></i><small>17%</small></div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

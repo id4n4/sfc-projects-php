@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard personal de Carlos en AgroGest.">
+  <title>Mi Dashboard | AgroGest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/empleado-dashboard.css">
+</head>
+
+<body class="employee-page">
+  <div class="app-shell">
+    <aside class="sidebar employee-sidebar">
+      <a class="brand" href="dashboard.html" aria-label="AgroGest, mi dashboard"><span class="brand-mark"
+          aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
+      <nav class="main-nav" aria-label="Navegación del empleado">
+        <p class="nav-label">Mi espacio</p>
+        <a class="nav-item is-active" href="dashboard.html" aria-current="page"><span class="nav-icon"
+            aria-hidden="true">▦</span><span>Mi Dashboard</span></a>
+        <a class="nav-item" href="actividades.html"><span class="nav-icon" aria-hidden="true">◷</span><span>Mis
+            actividades</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+            aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="breadcrumb">Mi espacio <span>/</span> Hoy, 24 junio 2024</p>
+          <h1>Mi Dashboard</h1>
+          <p>Consulta tu actividad y rendimiento</p>
+        </div>
+        <div class="user-menu">
+          <div class="user-copy"><strong>Carlos Méndez</strong><span>Empleado de campo</span></div>
+          <div class="avatar carlos-avatar" aria-label="Avatar de Carlos Méndez">CM</div>
+        </div>
+      </header>
+
+      <div class="content-inner employee-content">
+        <section class="welcome-banner" aria-label="Mensaje de bienvenida">
+          <div>
+            <p class="section-kicker">Tu jornada de hoy</p>
+            <h2>¡Buenos días, Carlos!</h2>
+            <p>Este es el resumen de tu actividad y rendimiento personal.</p>
+          </div><span class="welcome-mark" aria-hidden="true">✦</span>
+        </section>
+
+        <section class="personal-stats" aria-label="Mis estadísticas personales">
+          <article class="personal-stat"><span class="personal-stat-icon green-icon" aria-hidden="true">✦</span>
+            <div><span>Actividades realizadas hoy</span><strong>3</strong></div><small>1 pendiente de cierre</small>
+          </article>
+          <article class="personal-stat"><span class="personal-stat-icon orange-icon" aria-hidden="true">◷</span>
+            <div><span>Horas trabajadas hoy</span><strong>06:45 <small>h</small></strong></div><small>de una jornada de
+              8 h</small>
+          </article>
+          <article class="personal-stat"><span class="personal-stat-icon lime-icon" aria-hidden="true">▦</span>
+            <div><span>Actividades este mes</span><strong>28</strong></div><small>+4 frente al mes anterior</small>
+          </article>
+          <article class="personal-stat"><span class="personal-stat-icon blue-icon" aria-hidden="true">◷</span>
+            <div><span>Horas trabajadas este mes</span><strong>142 <small>h</small></strong></div><small>Promedio de 6.7
+              h por día</small>
+          </article>
+        </section>
+
+        <section class="panel recent-panel" aria-labelledby="recent-title">
+          <div class="panel-heading">
+            <div>
+              <h2 id="recent-title">Mis actividades recientes</h2>
+              <p>Últimos registros de tu jornada</p>
+            </div><a class="register-link" href="#registrar-actividad"><span aria-hidden="true">+</span> Registrar
+              actividad</a>
+          </div>
+          <div class="table-scroll">
+            <table class="personal-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Campo</th>
+                  <th>Tipo de actividad</th>
+                  <th>Tiempo empleado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hoy, 07:15</td>
+                  <td>Parcela Sur</td>
+                  <td><span class="activity-tag tag-prune">Poda</span></td>
+                  <td class="time-cell">03:30 h</td>
+                </tr>
+                <tr>
+                  <td>Hoy, 10:55</td>
+                  <td>Parcela Sur</td>
+                  <td><span class="activity-tag tag-water">Riego</span></td>
+                  <td class="time-cell">01:45 h</td>
+                </tr>
+                <tr>
+                  <td>Hoy, 14:10</td>
+                  <td>Campo Central</td>
+                  <td><span class="activity-tag tag-fertilize">Fertilización</span></td>
+                  <td class="time-cell">01:30 h</td>
+                </tr>
+                <tr>
+                  <td>23 Jun, 08:05</td>
+                  <td>Parcela Norte</td>
+                  <td><span class="activity-tag tag-seed">Siembra</span></td>
+                  <td class="time-cell">06:00 h</td>
+                </tr>
+                <tr>
+                  <td>22 Jun, 07:40</td>
+                  <td>Parcela Norte</td>
+                  <td><span class="activity-tag tag-water">Riego</span></td>
+                  <td class="time-cell">05:15 h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span>Mostrando tus últimos <strong>5</strong> registros</span><a
+              href="actividades.html">Ver mis actividades <span aria-hidden="true">→</span></a></div>
+        </section>
+
+        <div class="section-title-row">
+          <div>
+            <p class="section-kicker">Tu rendimiento</p>
+            <h2>Resumen de mis actividades</h2>
+          </div><span>Junio 2024</span>
+        </div>
+        <section class="personal-reports" aria-label="Resumen visual de mis actividades">
+          <article class="panel personal-report weekly-report">
+            <div class="report-heading">
+              <div>
+                <h3>Horas trabajadas por semana</h3>
+                <p>Seguimiento de tus horas registradas</p>
+              </div><span class="report-total">142 h</span>
+            </div>
+            <div class="weekly-chart" role="img"
+              aria-label="Horas trabajadas por semana: semana uno 31 horas, semana dos 36 horas, semana tres 39 horas, semana cuatro 36 horas">
+              <div class="weekly-axis"><span>40h</span><span>30h</span><span>20h</span><span>10h</span><span>0h</span>
+              </div>
+              <div class="weekly-plot"><i class="chart-grid grid-top"></i><i class="chart-grid grid-mid"></i><i
+                  class="chart-grid grid-low"></i>
+                <div class="weekly-bars">
+                  <div><b>31</b><span style="height: 77.5%"></span><small>Sem 1</small></div>
+                  <div><b>36</b><span style="height: 90%"></span><small>Sem 2</small></div>
+                  <div class="current"><b>39</b><span style="height: 97.5%"></span><small>Sem 3</small></div>
+                  <div><b>36</b><span style="height: 90%"></span><small>Sem 4</small></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="panel personal-report distribution-report">
+            <div class="report-heading">
+              <div>
+                <h3>Horas por tipo de actividad</h3>
+                <p>Distribución de tus 142 horas</p>
+              </div><span class="more-button" aria-hidden="true">•••</span>
+            </div>
+            <div class="distribution-content">
+              <div class="personal-donut" role="img"
+                aria-label="Poda 35 por ciento, riego 28 por ciento, siembra 22 por ciento y fertilización 15 por ciento">
+                <span>142<small>horas</small></span>
+              </div>
+              <ul class="personal-legend">
+                <li><i class="legend-prune"></i><span>Poda</span><b>50 h</b></li>
+                <li><i class="legend-water"></i><span>Riego</span><b>40 h</b></li>
+                <li><i class="legend-seed"></i><span>Siembra</span><b>31 h</b></li>
+                <li><i class="legend-fertilize"></i><span>Fertilización</span><b>21 h</b></li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
+        <section class="register-panel" id="registrar-actividad" aria-label="Registrar actividad">
+          <div>
+            <p class="section-kicker">Nueva jornada</p>
+            <h2>¿Ya terminaste una labor?</h2>
+            <p>Registra tu actividad para mantener actualizado tu rendimiento.</p>
+          </div><a class="primary-register" href="actividades.html"><span aria-hidden="true">+</span> Registrar
+            actividad</a>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

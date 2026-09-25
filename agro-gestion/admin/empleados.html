@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administra los trabajadores de tu explotación agrícola en AgroGest.">
+  <title>Gestión de empleados | AgroGest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/empleados.css">
+</head>
+
+<body class="admin-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard"><span class="brand-mark"
+          aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <p class="nav-label">Espacio de trabajo</p>
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon"
+            aria-hidden="true">▦</span><span>Dashboard</span></a>
+        <a class="nav-item" href="campos.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Campos</span></a>
+        <a class="nav-item is-active" href="empleados.html" aria-current="page"><span class="nav-icon"
+            aria-hidden="true">♙</span><span>Empleados</span></a>
+        <a class="nav-item" href="actividades.html"><span class="nav-icon" aria-hidden="true">◷</span><span>Historial e
+            informes</span></a>
+        <a class="nav-item" href="tipo-actividades.html"><span class="nav-icon" aria-hidden="true">✦</span><span>Tipos
+            de actividad</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+            aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="breadcrumb">Espacio de trabajo <span>/</span> Empleados</p>
+          <h1>Gestión de empleados</h1>
+          <p>Administra los trabajadores de tu explotación</p>
+        </div>
+        <div class="user-menu">
+          <div class="user-copy"><strong>Julián Moreno</strong><span>Jefe de explotación</span></div>
+          <div class="avatar" aria-label="Avatar de Julián Moreno">JM</div>
+        </div>
+      </header>
+
+      <div class="content-inner employees-content">
+        <div class="employees-toolbar">
+          <div>
+            <p class="section-kicker">Equipo de trabajo</p>
+            <h2>Tus empleados</h2>
+          </div><a class="primary-action" href="#nuevo-empleado"><span aria-hidden="true">+</span> Nuevo empleado</a>
+        </div>
+
+        <section class="employee-stats" aria-label="Resumen de empleados">
+          <article class="employee-stat"><span class="employee-stat-icon green-icon" aria-hidden="true">♙</span>
+            <div><span>Total de empleados</span><strong>14</strong></div><small>personas registradas</small>
+          </article>
+          <article class="employee-stat"><span class="employee-stat-icon lime-icon" aria-hidden="true">✓</span>
+            <div><span>Empleados activos</span><strong>12</strong></div><small><b>85.7%</b> del equipo activo</small>
+          </article>
+          <article class="employee-stat"><span class="employee-stat-icon gray-icon" aria-hidden="true">−</span>
+            <div><span>Empleados inactivos</span><strong>2</strong></div><small>sin actividad reciente</small>
+          </article>
+        </section>
+
+        <section class="panel employees-panel" aria-labelledby="employees-title">
+          <div class="employees-panel-heading">
+            <div>
+              <h2 id="employees-title">Listado de empleados</h2>
+              <p>Consulta y administra los miembros de tu equipo</p>
+            </div>
+            <div class="employee-count">14 empleados</div>
+          </div>
+          <div class="filters-row">
+            <label class="search-box" for="employee-search"><span aria-hidden="true">⌕</span><input type="search"
+                id="employee-search" placeholder="Buscar por nombre o correo electrónico"></label>
+            <div class="status-filters" role="group" aria-label="Filtrar por estado"><a
+                class="filter-button is-selected" href="#todos">Todos <b>14</b></a><a class="filter-button"
+                href="#activos">Activos <b>12</b></a><a class="filter-button" href="#inactivos">Inactivos <b>2</b></a>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="employees-table">
+              <thead>
+                <tr>
+                  <th>Nombre del empleado</th>
+                  <th>Correo electrónico</th>
+                  <th>Fecha de registro</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="employee-name"><span class="person-avatar avatar-pink">LC</span><span><strong>Laura
+                          Castillo</strong><small>Equipo de campo</small></span></span></td>
+                  <td>laura.castillo@agrogest.com</td>
+                  <td>12 feb, 2024</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#perfil-laura" aria-label="Ver perfil de Laura Castillo"
+                        title="Ver perfil">◉</a><a href="#editar-laura" aria-label="Editar a Laura Castillo"
+                        title="Editar">✎</a><a href="#desactivar-laura" aria-label="Desactivar a Laura Castillo"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="employee-name"><span class="person-avatar avatar-yellow">MR</span><span><strong>Mateo
+                          Rojas</strong><small>Equipo de campo</small></span></span></td>
+                  <td>mateo.rojas@agrogest.com</td>
+                  <td>28 ene, 2024</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#perfil-mateo" aria-label="Ver perfil de Mateo Rojas"
+                        title="Ver perfil">◉</a><a href="#editar-mateo" aria-label="Editar a Mateo Rojas"
+                        title="Editar">✎</a><a href="#desactivar-mateo" aria-label="Desactivar a Mateo Rojas"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="employee-name"><span class="person-avatar avatar-blue">SV</span><span><strong>Sofía
+                          Vargas</strong><small>Supervisión de cultivos</small></span></span></td>
+                  <td>sofia.vargas@agrogest.com</td>
+                  <td>16 mar, 2024</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#perfil-sofia" aria-label="Ver perfil de Sofía Vargas"
+                        title="Ver perfil">◉</a><a href="#editar-sofia" aria-label="Editar a Sofía Vargas"
+                        title="Editar">✎</a><a href="#desactivar-sofia" aria-label="Desactivar a Sofía Vargas"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="employee-name"><span class="person-avatar avatar-green">DP</span><span><strong>Diego
+                          Pérez</strong><small>Equipo de campo</small></span></span></td>
+                  <td>diego.perez@agrogest.com</td>
+                  <td>04 abr, 2024</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#perfil-diego" aria-label="Ver perfil de Diego Pérez"
+                        title="Ver perfil">◉</a><a href="#editar-diego" aria-label="Editar a Diego Pérez"
+                        title="Editar">✎</a><a href="#desactivar-diego" aria-label="Desactivar a Diego Pérez"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="employee-name"><span class="person-avatar avatar-gray">AN</span><span><strong>Ana
+                          Navarro</strong><small>Equipo de campo</small></span></span></td>
+                  <td>ana.navarro@agrogest.com</td>
+                  <td>09 nov, 2023</td>
+                  <td><span class="status-badge inactive"><i></i>Inactivo</span></td>
+                  <td><span class="row-actions"><a href="#perfil-ana" aria-label="Ver perfil de Ana Navarro"
+                        title="Ver perfil">◉</a><a href="#editar-ana" aria-label="Editar a Ana Navarro"
+                        title="Editar">✎</a><a href="#activar-ana" aria-label="Activar a Ana Navarro"
+                        title="Activar">⊕</a></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span>Mostrando <strong>5</strong> de <strong>14</strong>
+              empleados</span><span>Última actualización: hoy, 09:32</span></div>
+        </section>
+
+        <section class="panel new-employee-panel" id="nuevo-empleado" aria-labelledby="new-employee-title">
+          <div class="form-intro"><span class="form-icon" aria-hidden="true">♙</span>
+            <div>
+              <p class="section-kicker">Nuevo miembro</p>
+              <h2 id="new-employee-title">Registrar un empleado</h2>
+              <p>Completa los datos para darle acceso a AgroGest.</p>
+            </div>
+          </div>
+          <div class="credentials-notice"><span aria-hidden="true">i</span>
+            <p>El empleado recibirá sus credenciales por correo electrónico para iniciar sesión.</p>
+          </div>
+          <form class="employee-form" action="#" method="post">
+            <div class="input-group"><label for="employee-name">Nombre completo</label><input id="employee-name"
+                name="employee_name" type="text" placeholder="Ej. Carlos Méndez" autocomplete="name" required></div>
+            <div class="input-group"><label for="employee-email">Correo electrónico</label><input id="employee-email"
+                name="employee_email" type="email" placeholder="nombre@empresa.com" autocomplete="email" required></div>
+            <div class="input-group"><label for="temporary-password">Contraseña temporal</label><input
+                id="temporary-password" name="temporary_password" type="password" placeholder="Mínimo 8 caracteres"
+                minlength="8" autocomplete="new-password" required></div>
+            <div class="input-group"><label for="confirm-password">Confirmar contraseña</label><input
+                id="confirm-password" name="confirm_password" type="password" placeholder="Repite la contraseña"
+                minlength="8" autocomplete="new-password" required></div>
+            <div class="form-actions"><a class="cancel-action" href="#employees-title">Cancelar</a><button
+                class="save-action" type="submit">Guardar empleado <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

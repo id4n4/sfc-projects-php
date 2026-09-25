@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestiona las parcelas de tu explotación agrícola en AgroGest.">
+  <title>Gestión de campos | AgroGest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/campos.css">
+</head>
+
+<body class="admin-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Agro<span>Gest</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <p class="nav-label">Espacio de trabajo</p>
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon"
+            aria-hidden="true">▦</span><span>Dashboard</span></a>
+        <a class="nav-item is-active" href="campos.html" aria-current="page"><span class="nav-icon"
+            aria-hidden="true">⌂</span><span>Campos</span></a>
+        <a class="nav-item" href="empleados.html"><span class="nav-icon"
+            aria-hidden="true">♙</span><span>Empleados</span></a>
+        <a class="nav-item" href="actividades.html"><span class="nav-icon" aria-hidden="true">◷</span><span>Historial e
+            informes</span></a>
+        <a class="nav-item" href="tipo-actividades.html"><span class="nav-icon" aria-hidden="true">✦</span><span>Tipos
+            de actividad</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="logout-link" href="../index.html"><span class="nav-icon" aria-hidden="true">↪</span><span>Cerrar
+            sesión</span></a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="breadcrumb">Espacio de trabajo <span>/</span> Campos</p>
+          <h1>Gestión de campos</h1>
+          <p>Administra las parcelas de tu explotación agrícola</p>
+        </div>
+        <div class="user-menu">
+          <div class="user-copy"><strong>Julián Moreno</strong><span>Jefe de explotación</span></div>
+          <div class="avatar" aria-label="Avatar de Julián Moreno">JM</div>
+        </div>
+      </header>
+
+      <div class="content-inner fields-content">
+        <div class="fields-toolbar">
+          <div>
+            <p class="section-kicker">Vista general</p>
+            <h2>Tus parcelas</h2>
+          </div>
+          <a class="primary-action" href="#nuevo-campo"><span aria-hidden="true">+</span> Nuevo campo</a>
+        </div>
+
+        <section class="field-stats" aria-label="Resumen de campos">
+          <article class="field-stat"><span class="field-stat-icon green-icon" aria-hidden="true">⌂</span>
+            <div><span>Total de campos</span><strong>4</strong></div><small>parcelas registradas</small>
+          </article>
+          <article class="field-stat"><span class="field-stat-icon orange-icon" aria-hidden="true">▱</span>
+            <div><span>Superficie total</span><strong>1,240 <small>ha</small></strong></div><small>área
+              administrada</small>
+          </article>
+          <article class="field-stat"><span class="field-stat-icon lime-icon" aria-hidden="true">✓</span>
+            <div><span>Campos activos</span><strong>3</strong></div><small><b>75%</b> del total activos</small>
+          </article>
+        </section>
+
+        <section class="panel fields-panel" aria-labelledby="fields-title">
+          <div class="fields-panel-heading">
+            <div>
+              <h2 id="fields-title">Listado de campos</h2>
+              <p>Consulta y administra cada parcela registrada</p>
+            </div>
+            <div class="field-count">4 campos</div>
+          </div>
+          <div class="filters-row">
+            <label class="search-box" for="field-search"><span aria-hidden="true">⌕</span><input type="search"
+                id="field-search" placeholder="Buscar por nombre o número de parcela"></label>
+            <div class="status-filters" role="group" aria-label="Filtrar por estado"><a
+                class="filter-button is-selected" href="#todos">Todos <b>4</b></a><a class="filter-button"
+                href="#activos">Activos <b>3</b></a><a class="filter-button" href="#inactivos">Inactivos <b>1</b></a>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="fields-table">
+              <thead>
+                <tr>
+                  <th>Nombre del campo</th>
+                  <th>Número de parcela</th>
+                  <th>Área (ha)</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="field-name"><span class="field-avatar avatar-green">PN</span><span><strong>Parcela
+                          Norte</strong><small>Zona norte · Cultivo de olivo</small></span></span></td>
+                  <td class="parcel-number">AG-001-N</td>
+                  <td>420 ha</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-norte" aria-label="Editar Parcela Norte"
+                        title="Editar">✎</a><a href="#desactivar-norte" aria-label="Desactivar Parcela Norte"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="field-name"><span class="field-avatar avatar-orange">PS</span><span><strong>Parcela
+                          Sur</strong><small>Zona sur · Cultivo de trigo</small></span></span></td>
+                  <td class="parcel-number">AG-002-S</td>
+                  <td>315 ha</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-sur" aria-label="Editar Parcela Sur"
+                        title="Editar">✎</a><a href="#desactivar-sur" aria-label="Desactivar Parcela Sur"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="field-name"><span class="field-avatar avatar-blue">CC</span><span><strong>Campo
+                          Central</strong><small>Zona central · Cultivo mixto</small></span></span></td>
+                  <td class="parcel-number">AG-003-C</td>
+                  <td>280 ha</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-central" aria-label="Editar Campo Central"
+                        title="Editar">✎</a><a href="#desactivar-central" aria-label="Desactivar Campo Central"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="field-name"><span class="field-avatar avatar-gray">PE</span><span><strong>Parcela
+                          Este</strong><small>Zona este · En descanso</small></span></span></td>
+                  <td class="parcel-number">AG-004-E</td>
+                  <td>225 ha</td>
+                  <td><span class="status-badge inactive"><i></i>Inactivo</span></td>
+                  <td><span class="row-actions"><a href="#editar-este" aria-label="Editar Parcela Este"
+                        title="Editar">✎</a><a href="#activar-este" aria-label="Activar Parcela Este"
+                        title="Activar">⊕</a></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span>Mostrando <strong>4</strong> de <strong>4</strong> campos</span><span>Última
+              actualización: hoy, 09:32</span></div>
+        </section>
+
+        <section class="panel new-field-panel" id="nuevo-campo" aria-labelledby="new-field-title">
+          <div class="form-intro"><span class="form-icon" aria-hidden="true">+</span>
+            <div>
+              <p class="section-kicker">Nueva parcela</p>
+              <h2 id="new-field-title">Crear un nuevo campo</h2>
+              <p>Añade una parcela para comenzar a registrar su actividad.</p>
+            </div>
+          </div>
+          <form class="field-form" action="#" method="post">
+            <div class="input-group"><label for="field-name">Nombre del campo</label><input id="field-name"
+                name="field_name" type="text" placeholder="Ej. Parcela Oeste" required></div>
+            <div class="input-group"><label for="parcel-number">Número de parcela</label><input id="parcel-number"
+                name="parcel_number" type="text" placeholder="Ej. AG-005-O" required></div>
+            <div class="input-group"><label for="field-area">Área en hectáreas</label>
+              <div class="unit-input"><input id="field-area" name="field_area" type="number" min="0" step="0.01"
+                  placeholder="0.00" required><span>ha</span></div>
+            </div>
+            <div class="form-actions"><a class="cancel-action" href="#fields-title">Cancelar</a><button
+                class="save-action" type="submit">Guardar campo <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

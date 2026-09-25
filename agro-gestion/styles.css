@@ -1,0 +1,401 @@
+:root {
+	--ink: #20372f;
+	--muted: #718078;
+	--line: #d9e3dc;
+	--paper: #f7faf6;
+	--white: #ffffff;
+	--green: #28634c;
+	--green-dark: #194b39;
+	--lime: #c6d86d;
+	--orange: #e78a4a;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	color: var(--ink);
+	background: var(--paper);
+	font-family: "DM Sans", sans-serif;
+}
+
+a {
+	color: inherit;
+}
+
+.auth-page {
+	min-height: 100vh;
+	background: var(--paper);
+}
+
+.auth-shell {
+	display: grid;
+	grid-template-columns: minmax(390px, 42%) 1fr;
+	min-height: 100vh;
+}
+
+.brand-panel {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	padding: 42px clamp(36px, 6vw, 90px) 45px;
+	color: var(--white);
+	background: var(--green);
+	isolation: isolate;
+}
+
+.brand-panel::before,
+.brand-panel::after {
+	position: absolute;
+	z-index: -1;
+	border: 1px solid rgba(198, 216, 109, .28);
+	border-radius: 50%;
+	content: "";
+}
+
+.brand-panel::before {
+	width: 540px;
+	height: 540px;
+	right: -245px;
+	bottom: -210px;
+}
+
+.brand-panel::after {
+	width: 330px;
+	height: 330px;
+	right: -140px;
+	bottom: -105px;
+}
+
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	width: fit-content;
+	color: var(--white);
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 1.28rem;
+	font-weight: 700;
+	letter-spacing: -.04em;
+	text-decoration: none;
+}
+
+.brand > span:last-child > span {
+	color: var(--lime);
+}
+
+.brand-mark {
+	display: grid;
+	width: 29px;
+	height: 29px;
+	place-items: center;
+	color: var(--green-dark);
+	background: var(--lime);
+	border-radius: 8px 8px 8px 2px;
+	font-size: 1.45rem;
+	line-height: 1;
+}
+
+.brand-message {
+	max-width: 500px;
+	margin: 0 0 6vh;
+}
+
+.eyebrow {
+	margin: 0 0 16px;
+	color: var(--orange);
+	font-size: .73rem;
+	font-weight: 700;
+	letter-spacing: .14em;
+	line-height: 1.4;
+	text-transform: uppercase;
+}
+
+.brand-panel .eyebrow {
+	color: var(--lime);
+}
+
+h1,
+h2 {
+	margin: 0;
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: -.055em;
+}
+
+h1 {
+	max-width: 540px;
+	font-size: clamp(2.65rem, 4.2vw, 4.7rem);
+	line-height: .99;
+}
+
+h1 em {
+	color: var(--lime);
+	font-style: normal;
+}
+
+.brand-copy {
+	max-width: 430px;
+	margin: 25px 0 0;
+	color: rgba(255, 255, 255, .72);
+	font-size: 1rem;
+	line-height: 1.7;
+}
+
+.field-note {
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	color: rgba(255, 255, 255, .58);
+	font-size: .72rem;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+.field-note-line {
+	width: 40px;
+	height: 1px;
+	background: var(--orange);
+}
+
+.form-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+	padding: 50px clamp(28px, 8vw, 130px);
+}
+
+.form-wrap {
+	width: min(100%, 430px);
+	margin: auto;
+}
+
+.register-wrap {
+	width: min(100%, 570px);
+}
+
+.mobile-brand {
+	display: none;
+	margin-bottom: 48px;
+}
+
+.form-heading {
+	margin-bottom: 31px;
+}
+
+.form-heading h2 {
+	font-size: clamp(2rem, 3vw, 2.65rem);
+	line-height: 1.05;
+}
+
+.form-heading > p:last-child {
+	margin: 12px 0 0;
+	color: var(--muted);
+	font-size: .95rem;
+}
+
+.auth-form {
+	display: grid;
+	gap: 21px;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.field-group {
+	display: grid;
+	gap: 8px;
+}
+
+label {
+	color: var(--ink);
+	font-size: .8rem;
+	font-weight: 700;
+}
+
+.label-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+	width: 100%;
+	min-height: 51px;
+	padding: 0 15px;
+	color: var(--ink);
+	background: var(--white);
+	border: 1px solid var(--line);
+	border-radius: 5px;
+	font: inherit;
+	font-size: .9rem;
+	outline: none;
+	transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input::placeholder {
+	color: #a3aea7;
+}
+
+input:focus {
+	border-color: var(--green);
+	box-shadow: 0 0 0 3px rgba(40, 99, 76, .12);
+}
+
+.text-link {
+	color: var(--green);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+	color: var(--orange);
+	text-decoration: underline;
+}
+
+.label-row .text-link,
+.form-footer {
+	font-size: .78rem;
+}
+
+.check-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 9px;
+	color: var(--muted);
+	font-size: .78rem;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.check-row input {
+	flex: 0 0 auto;
+	width: 16px;
+	height: 16px;
+	margin: 1px 0 0;
+	accent-color: var(--green);
+}
+
+.terms-row {
+	margin-top: -4px;
+}
+
+.primary-button {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 54px;
+	padding: 0 18px 0 20px;
+	color: var(--white);
+	background: var(--green);
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	font: inherit;
+	font-size: .87rem;
+	font-weight: 700;
+	transition: background .2s ease, transform .2s ease;
+}
+
+.primary-button span {
+	color: var(--lime);
+	font-size: 1.45rem;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+	background: var(--green-dark);
+	transform: translateY(-1px);
+}
+
+.form-footer {
+	margin: 28px 0 0;
+	color: var(--muted);
+	text-align: center;
+}
+
+.legal-note {
+	max-width: 450px;
+	margin: 40px auto 0;
+	color: #9aa69f;
+	font-size: .7rem;
+	line-height: 1.6;
+	text-align: center;
+}
+
+.legal-note a {
+	color: var(--muted);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+@media (max-width: 850px) {
+	.auth-shell {
+		grid-template-columns: 1fr;
+	}
+
+	.brand-panel {
+		display: none;
+	}
+
+	.mobile-brand {
+		display: block;
+	}
+
+	.mobile-brand .brand {
+		color: var(--green);
+	}
+
+	.mobile-brand .brand-mark {
+		color: var(--white);
+		background: var(--green);
+	}
+
+	.mobile-brand .brand > span:last-child > span {
+		color: var(--orange);
+	}
+
+	.form-panel {
+		min-height: 100vh;
+		padding: 36px 28px;
+	}
+}
+
+@media (max-width: 540px) {
+	.form-panel {
+		padding: 28px 20px;
+	}
+
+	.mobile-brand {
+		margin-bottom: 40px;
+	}
+
+	.form-grid {
+		grid-template-columns: 1fr;
+		gap: 21px;
+	}
+
+	.form-heading {
+		margin-bottom: 26px;
+	}
+
+	.legal-note {
+		margin-top: 28px;
+	}
+}

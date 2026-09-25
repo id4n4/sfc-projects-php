@@ -1,0 +1,42 @@
+:root {
+    --ink: #20372f;
+    --muted: #76827c;
+    --soft-muted: #a2ada7;
+    --line: #e2e9e4;
+    --paper: #f5f8f4;
+    --white: #ffffff;
+    --green: #28634c;
+    --green-dark: #194b39;
+    --lime: #c6d86d;
+    --orange: #e78a4a;
+    --blue: #6aa9bd;
+    --sidebar: #173e33;
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+.app-shell { display: flex; min-height: 100vh; }
+.sidebar { position: fixed; inset: 0 auto 0 0; display: flex; flex-direction: column; width: 250px; padding: 31px 17px 22px; color: rgba(255,255,255,.66); background: var(--sidebar); }
+.brand { display: inline-flex; align-items: center; gap: 9px; width: fit-content; margin: 0 16px 68px; color: var(--white); font-family: "Space Grotesk", sans-serif; font-size: 1.33rem; font-weight: 700; letter-spacing: -.05em; }
+.brand > span:last-child > span { color: var(--lime); }
+.brand-mark { display: grid; width: 29px; height: 29px; place-items: center; color: var(--sidebar); background: var(--lime); border-radius: 8px 8px 8px 2px; font-size: 1.45rem; line-height: 1; }
+.nav-label { margin: 0 16px 15px; color: rgba(255,255,255,.3); font-size: .64rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.main-nav { display: grid; gap: 5px; }
+.nav-item, .logout-link { display: flex; align-items: center; gap: 13px; min-height: 47px; padding: 0 16px; border-radius: 6px; font-size: .83rem; font-weight: 500; transition: background .2s ease, color .2s ease; }
+.nav-item:hover, .logout-link:hover { color: var(--white); background: rgba(255,255,255,.08); }
+.nav-item.is-active { color: var(--lime); background: rgba(198,216,109,.14); font-weight: 700; }
+.nav-icon { display: inline-grid; width: 18px; place-items: center; color: currentColor; font-size: 1.08rem; line-height: 1; }
+.sidebar-footer { margin-top: auto; }
+.main-content { width: calc(100% - 250px); margin-left: 250px; }
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 145px; padding: 34px clamp(28px, 4vw, 62px) 29px; background: var(--white); border-bottom: 1px solid var(--line); }
+.breadcrumb { margin: 0 0 12px; color: var(--soft-muted); font-size: .7rem; font-weight: 600; }.breadcrumb span { padding: 0 7px; color: var(--line); }
+h1, h2 { margin: 0; font-family: "Space Grotesk", sans-serif; letter-spacing: -.045em; }h1 { font-size: 2rem; line-height: 1; }
+.page-heading > p:last-child { margin: 7px 0 0; color: var(--muted); font-size: .82rem; }.user-menu { display: flex; align-items: center; gap: 12px; }.user-copy { text-align: right; }.user-copy strong, .user-copy span { display: block; }.user-copy strong { font-size: .82rem; }.user-copy span { margin-top: 4px; color: var(--muted); font-size: .68rem; }
+.avatar { display: grid; width: 42px; height: 42px; place-items: center; color: var(--green-dark); background: var(--lime); border-radius: 50%; font-size: .76rem; font-weight: 700; }
+.content-inner { max-width: 1550px; margin: 0 auto; padding: 31px clamp(28px, 4vw, 62px) 45px; }.panel { background: var(--white); border: 1px solid var(--line); border-radius: 7px; box-shadow: 0 4px 15px rgba(31,59,46,.025); }
+.table-scroll { overflow-x: auto; }table { width: 100%; border-collapse: collapse; }th, td { text-align: left; }
+@media (max-width: 820px) { .sidebar { position: static; width: 100%; min-height: auto; padding: 20px 18px; }.app-shell { display: block; }.sidebar .brand { margin: 0 0 24px; }.main-nav { display: flex; overflow-x: auto; gap: 5px; }.nav-label, .sidebar-footer, .nav-item span:last-child { display: none; }.nav-item { flex: 0 0 43px; justify-content: center; padding: 0; }.main-content { width: 100%; margin-left: 0; }.topbar { min-height: 125px; padding: 27px 24px; }.content-inner { padding: 24px; } }
+@media (max-width: 560px) { .topbar { align-items: flex-start; flex-direction: column; gap: 17px; }.user-menu { align-self: stretch; }.user-copy { margin-right: auto; text-align: left; }.content-inner { padding: 18px 16px 30px; } }

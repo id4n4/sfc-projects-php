@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administra las categorías de labores agrícolas en AgroGest.">
+  <title>Tipos de actividad | AgroGest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/tipo-actividades.css">
+</head>
+
+<body class="admin-page">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard"><span class="brand-mark"
+          aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <p class="nav-label">Espacio de trabajo</p>
+        <a class="nav-item" href="dashboard.html"><span class="nav-icon"
+            aria-hidden="true">▦</span><span>Dashboard</span></a>
+        <a class="nav-item" href="campos.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Campos</span></a>
+        <a class="nav-item" href="empleados.html"><span class="nav-icon"
+            aria-hidden="true">♙</span><span>Empleados</span></a>
+        <a class="nav-item" href="actividades.html"><span class="nav-icon" aria-hidden="true">◷</span><span>Historial e
+            informes</span></a>
+        <a class="nav-item is-active" href="tipo-actividades.html" aria-current="page"><span class="nav-icon"
+            aria-hidden="true">✦</span><span>Tipos de actividad</span></a>
+      </nav>
+      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+            aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="breadcrumb">Espacio de trabajo <span>/</span> Configuración</p>
+          <h1>Tipos de actividad</h1>
+          <p>Administra las categorías de labores agrícolas</p>
+        </div>
+        <div class="user-menu">
+          <div class="user-copy"><strong>Julián Moreno</strong><span>Jefe de explotación</span></div>
+          <div class="avatar" aria-label="Avatar de Julián Moreno">JM</div>
+        </div>
+      </header>
+
+      <div class="content-inner activity-types-content">
+        <div class="types-toolbar">
+          <div>
+            <p class="section-kicker">Catálogo operativo</p>
+            <h2>Tipos de actividad</h2>
+          </div><a class="primary-action" href="#nuevo-tipo"><span aria-hidden="true">+</span> Nuevo tipo</a>
+        </div>
+
+        <section class="type-stats" aria-label="Resumen de tipos de actividad">
+          <article class="type-stat"><span class="type-stat-icon green-icon" aria-hidden="true">✦</span>
+            <div><span>Total de tipos</span><strong>5</strong></div><small>categorías registradas</small>
+          </article>
+          <article class="type-stat"><span class="type-stat-icon lime-icon" aria-hidden="true">✓</span>
+            <div><span>Tipos activos</span><strong>5</strong></div><small><b>100%</b> disponibles para registrar</small>
+          </article>
+          <article class="type-stat"><span class="type-stat-icon gray-icon" aria-hidden="true">−</span>
+            <div><span>Tipos inactivos</span><strong>0</strong></div><small>sin categorías archivadas</small>
+          </article>
+        </section>
+
+        <section class="panel types-panel" aria-labelledby="types-title">
+          <div class="types-panel-heading">
+            <div>
+              <h2 id="types-title">Catálogo de actividades</h2>
+              <p>Organiza las labores que puede registrar tu equipo</p>
+            </div><span class="type-count">5 tipos</span>
+          </div>
+          <div class="search-row"><label class="search-box" for="type-search"><span aria-hidden="true">⌕</span><input
+                id="type-search" name="type_search" type="search" placeholder="Buscar por nombre"></label><span
+              class="search-hint">Última actualización: hoy, 09:32</span></div>
+          <div class="table-scroll">
+            <table class="types-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="type-name"><span class="type-avatar water">R</span><strong>Riego</strong></span></td>
+                  <td>Aplicación de agua a los cultivos y parcelas.</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-riego" aria-label="Editar tipo Riego"
+                        title="Editar">✎</a><a href="#desactivar-riego" aria-label="Desactivar tipo Riego"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="type-name"><span class="type-avatar seed">S</span><strong>Siembra</strong></span>
+                  </td>
+                  <td>Preparación del terreno y colocación de semillas.</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-siembra" aria-label="Editar tipo Siembra"
+                        title="Editar">✎</a><a href="#desactivar-siembra" aria-label="Desactivar tipo Siembra"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="type-name"><span class="type-avatar prune">P</span><strong>Poda</strong></span></td>
+                  <td>Recorte y mantenimiento de ramas y plantas.</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-poda" aria-label="Editar tipo Poda"
+                        title="Editar">✎</a><a href="#desactivar-poda" aria-label="Desactivar tipo Poda"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="type-name"><span
+                        class="type-avatar fertilizer">F</span><strong>Fertilización</strong></span></td>
+                  <td>Aplicación de nutrientes y abonos al cultivo.</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-fertilizacion" aria-label="Editar tipo Fertilización"
+                        title="Editar">✎</a><a href="#desactivar-fertilizacion"
+                        aria-label="Desactivar tipo Fertilización" title="Desactivar">⊖</a></span></td>
+                </tr>
+                <tr>
+                  <td><span class="type-name"><span class="type-avatar harvest">C</span><strong>Cosecha</strong></span>
+                  </td>
+                  <td>Recolección y traslado de productos agrícolas.</td>
+                  <td><span class="status-badge active"><i></i>Activo</span></td>
+                  <td><span class="row-actions"><a href="#editar-cosecha" aria-label="Editar tipo Cosecha"
+                        title="Editar">✎</a><a href="#desactivar-cosecha" aria-label="Desactivar tipo Cosecha"
+                        title="Desactivar">⊖</a></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer"><span>Mostrando <strong>5</strong> de <strong>5</strong> tipos</span><span>Estos
+              tipos estarán disponibles al registrar actividades</span></div>
+        </section>
+
+        <section class="panel type-form-panel" id="nuevo-tipo" aria-labelledby="type-form-title">
+          <div class="form-intro"><span class="form-icon" aria-hidden="true">✦</span>
+            <div>
+              <p class="section-kicker">Configuración del catálogo</p>
+              <h2 id="type-form-title">Crear o editar tipo de actividad</h2>
+              <p>Define una categoría clara para facilitar el registro diario.</p>
+            </div>
+          </div>
+          <form class="type-form" action="#" method="post">
+            <div class="input-group"><label for="activity-name">Nombre del tipo</label><input id="activity-name"
+                name="activity_name" type="text" placeholder="Ej. Control de plagas" required></div>
+            <div class="input-group description-input"><label for="activity-description">Descripción</label><textarea
+                id="activity-description" name="activity_description" rows="3"
+                placeholder="Describe brevemente en qué consiste esta actividad" required></textarea></div>
+            <fieldset class="state-field">
+              <legend>Estado</legend><label class="state-option"><input type="radio" name="activity_status"
+                  value="active" checked><span class="radio-mark"></span>Activo</label><label
+                class="state-option"><input type="radio" name="activity_status" value="inactive"><span
+                  class="radio-mark"></span>Inactivo</label>
+            </fieldset>
+            <div class="form-actions"><a class="cancel-action" href="#types-title">Cancelar</a><button
+                class="save-action" type="submit">Guardar tipo <span aria-hidden="true">→</span></button></div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
