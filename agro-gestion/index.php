@@ -18,7 +18,7 @@
 <body class="auth-page">
   <main class="auth-shell">
     <section class="brand-panel" aria-label="AgroGestión">
-      <a class="brand" href="index.html" aria-label="AgroGestión, inicio">
+      <a class="brand" href="index.php" aria-label="AgroGestión, inicio">
         <span class="brand-mark" aria-hidden="true">+</span>
         <span>Agro<span>Gestión</span></span>
       </a>
@@ -39,7 +39,7 @@
     <section class="form-panel">
       <div class="form-wrap">
         <div class="mobile-brand">
-          <a class="brand" href="index.html" aria-label="AgroGestión, inicio">
+          <a class="brand" href="index.php" aria-label="AgroGestión, inicio">
             <span class="brand-mark" aria-hidden="true">+</span>
             <span>Agro<span>Gestión</span></span>
           </a>
@@ -69,7 +69,7 @@
           <button class="primary-button" type="submit">Ingresar a AgroGestión <span aria-hidden="true">→</span></button>
         </form>
 
-        <p class="form-footer">¿Aún no tienes una cuenta? <a href="registro.html" class="text-link">Crea tu cuenta</a>
+        <p class="form-footer">¿Aún no tienes una cuenta? <a href="registro.php" class="text-link">Crea tu cuenta</a>
         </p>
       </div>
       <p class="legal-note">Al continuar, aceptas nuestros <a href="#">términos de uso</a> y <a href="#">política de

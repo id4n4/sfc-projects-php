@@ -18,37 +18,37 @@
 <body class="dashboard-page">
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard">
+      <a class="brand" href="dashboard.php" aria-label="AgroGest, dashboard">
         <span class="brand-mark" aria-hidden="true">+</span>
         <span>Agro<span>Gest</span></span>
       </a>
 
       <nav class="main-nav" aria-label="Navegación principal">
         <p class="nav-label">Espacio de trabajo</p>
-        <a class="nav-item is-active" href="dashboard.html" aria-current="page">
+        <a class="nav-item is-active" href="dashboard.php" aria-current="page">
           <span class="nav-icon" aria-hidden="true">▦</span>
           <span>Dashboard</span>
         </a>
-        <a class="nav-item" href="campos.html">
+        <a class="nav-item" href="campos.php">
           <span class="nav-icon" aria-hidden="true">⌂</span>
           <span>Campos</span>
         </a>
-        <a class="nav-item" href="empleados.html">
+        <a class="nav-item" href="empleados.php">
           <span class="nav-icon" aria-hidden="true">♙</span>
           <span>Empleados</span>
         </a>
-        <a class="nav-item" href="actividades.html">
+        <a class="nav-item" href="actividades.php">
           <span class="nav-icon" aria-hidden="true">◷</span>
           <span>Historial e informes</span>
         </a>
-        <a class="nav-item" href="tipo-actividades.html">
+        <a class="nav-item" href="tipo-actividades.php">
           <span class="nav-icon" aria-hidden="true">✦</span>
           <span>Tipos de actividad</span>
         </a>
       </nav>
 
       <div class="sidebar-footer">
-        <a class="logout-link" href="../index.html">
+        <a class="logout-link" href="../index.php">
           <span class="nav-icon" aria-hidden="true">↪</span>
           <span>Cerrar sesión</span>
         </a>
@@ -231,10 +231,10 @@
               </div>
             </div>
             <div class="shortcut-list">
-              <a class="shortcut" href="campos.html"><span class="shortcut-icon">+</span><span><strong>Añadir
+              <a class="shortcut" href="campos.php"><span class="shortcut-icon">+</span><span><strong>Añadir
                     campo</strong><small>Registra una nueva parcela</small></span><span
                   class="shortcut-arrow">→</span></a>
-              <a class="shortcut" href="empleados.html"><span
+              <a class="shortcut" href="empleados.php"><span
                   class="shortcut-icon employee-shortcut">♙</span><span><strong>Registrar
                     empleado</strong><small>Incorpora a tu equipo</small></span><span
                   class="shortcut-arrow">→</span></a>

@@ -345,6 +345,30 @@ input:focus {
 	text-underline-offset: 2px;
 }
 
+.form-message {
+	display: block;
+	grid-column: 1 / -1;
+	margin: -5px 0 0;
+	padding: 11px 13px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	font-size: .78rem;
+	font-weight: 600;
+	line-height: 1.45;
+}
+
+.form-message--success {
+	color: #39734f;
+	background: #edf7ef;
+	border-color: #cfe7d4;
+}
+
+.form-message--error {
+	color: #a34f38;
+	background: #fff0eb;
+	border-color: #f2d1c7;
+}
+
 @media (max-width: 850px) {
 	.auth-shell {
 		grid-template-columns: 1fr;

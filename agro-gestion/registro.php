@@ -1,3 +1,43 @@
+<?php
+require("./config/conexion.php");
+require("./includes/auth.php");
+
+redirectIfLoggedIn();
+
+$error = "";
+$is_registered = false;
+$name = "";
+$email = "";
+$terms_accepted = false;
+
+if ($_SERVER["REQUEST_METHOD"] === 'POST') {
+  $name = trim($_POST['name'] ?? '');
+  $email = trim($_POST['email'] ?? '');
+  $password = $_POST['password'] ?? '';
+  $password_confirm = $_POST['password_confirmation'] ?? '';
+  $terms_accepted = isset($_POST['terms']);
+
+  if ($password != $password_confirm) {
+    $error = 'Las contraseñas no coinciden';
+  } else {
+    try {
+      $password_hash = password_hash($password, PASSWORD_DEFAULT);
+      $pdo = connect();
+      $stmt = $pdo->prepare('INSERT INTO usuario (nombre, email, pass) values (?,?,?) ');
+      $stmt->execute([$name, $email, $password_hash]);
+      $is_registered = true;
+      $name = "";
+      $email = "";
+      $terms_accepted = false;
+    } catch (PDOException $e) {
+      $error = $e->getMessage();
+    }
+
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,7 +57,7 @@
 <body class="auth-page">
   <main class="auth-shell">
     <section class="brand-panel brand-panel-register" aria-label="AgroGestión">
-      <a class="brand" href="index.html" aria-label="AgroGestión, inicio">
+      <a class="brand" href="index.php" aria-label="AgroGestión, inicio">
         <span class="brand-mark" aria-hidden="true">+</span>
         <span>Agro<span>Gestión</span></span>
       </a>
@@ -36,7 +76,7 @@
     <section class="form-panel">
       <div class="form-wrap register-wrap">
         <div class="mobile-brand">
-          <a class="brand" href="index.html" aria-label="AgroGestión, inicio">
+          <a class="brand" href="index.php" aria-label="AgroGestión, inicio">
             <span class="brand-mark" aria-hidden="true">+</span>
             <span>Agro<span>Gestión</span></span>
           </a>
@@ -47,15 +87,22 @@
           <p>Configura tu espacio de trabajo en pocos pasos.</p>
         </div>
 
-        <form class="auth-form" action="#" method="post">
+        <form class="auth-form" action="registro.php" method="post">
+          <?php if ($is_registered): ?>
+            <span class="form-message form-message--success" role="status">Usuario registrado exitosamente</span>
+          <?php elseif ($error): ?>
+            <span class="form-message form-message--error" role="alert"><?= htmlspecialchars($error) ?></span>
+          <?php endif; ?>
           <div class="field-group">
             <label for="name">Nombre completo</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" autocomplete="name" required>
+            <input type="text" id="name" name="name" value="<?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?>"
+              placeholder="Tu nombre" autocomplete="name" required>
           </div>
           <div class="field-group">
             <label for="register-email">Correo electrónico</label>
-            <input type="email" id="register-email" name="email" placeholder="nombre@empresa.com" autocomplete="email"
-              required>
+            <input type="email" id="register-email" name="email"
+              value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8') ?>" placeholder="nombre@empresa.com"
+              autocomplete="email" required>
           </div>
           <div class="form-grid">
             <div class="field-group">
@@ -70,14 +117,14 @@
             </div>
           </div>
           <label class="check-row terms-row">
-            <input type="checkbox" name="terms" required>
+            <input type="checkbox" name="terms" required <?= $terms_accepted ? 'checked' : '' ?>>
             <span>Acepto los <a href="#" class="text-link">términos de uso</a> y la <a href="#"
                 class="text-link">política de privacidad</a>.</span>
           </label>
           <button class="primary-button" type="submit">Crear mi cuenta <span aria-hidden="true">→</span></button>
         </form>
 
-        <p class="form-footer">¿Ya tienes una cuenta? <a href="index.html" class="text-link">Inicia sesión</a></p>
+        <p class="form-footer">¿Ya tienes una cuenta? <a href="index.php" class="text-link">Inicia sesión</a></p>
       </div>
       <p class="legal-note">Tus datos están protegidos y solo serán usados para gestionar tu cuenta.</p>
     </section>

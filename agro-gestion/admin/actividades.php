@@ -18,21 +18,21 @@
 <body class="admin-page">
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html" aria-label="AgroGest, dashboard"><span class="brand-mark"
+      <a class="brand" href="dashboard.php" aria-label="AgroGest, dashboard"><span class="brand-mark"
           aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
       <nav class="main-nav" aria-label="Navegación principal">
         <p class="nav-label">Espacio de trabajo</p>
-        <a class="nav-item" href="dashboard.html"><span class="nav-icon"
+        <a class="nav-item" href="dashboard.php"><span class="nav-icon"
             aria-hidden="true">▦</span><span>Dashboard</span></a>
-        <a class="nav-item" href="campos.html"><span class="nav-icon" aria-hidden="true">⌂</span><span>Campos</span></a>
-        <a class="nav-item" href="empleados.html"><span class="nav-icon"
+        <a class="nav-item" href="campos.php"><span class="nav-icon" aria-hidden="true">⌂</span><span>Campos</span></a>
+        <a class="nav-item" href="empleados.php"><span class="nav-icon"
             aria-hidden="true">♙</span><span>Empleados</span></a>
-        <a class="nav-item is-active" href="actividades.html" aria-current="page"><span class="nav-icon"
+        <a class="nav-item is-active" href="actividades.php" aria-current="page"><span class="nav-icon"
             aria-hidden="true">◷</span><span>Historial e informes</span></a>
-        <a class="nav-item" href="tipo-actividades.html"><span class="nav-icon" aria-hidden="true">✦</span><span>Tipos
+        <a class="nav-item" href="tipo-actividades.php"><span class="nav-icon" aria-hidden="true">✦</span><span>Tipos
             de actividad</span></a>
       </nav>
-      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+      <div class="sidebar-footer"><a class="logout-link" href="../index.php"><span class="nav-icon"
             aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
     </aside>
 
@@ -108,7 +108,7 @@
                 <option>Fertilización</option>
               </select></div>
             <div class="filter-actions"><button class="filter-submit" type="submit">Filtrar <span
-                  aria-hidden="true">→</span></button><a class="clear-filters" href="actividades.html">Limpiar
+                  aria-hidden="true">→</span></button><a class="clear-filters" href="actividades.php">Limpiar
                 filtros</a></div>
           </form>
         </section>

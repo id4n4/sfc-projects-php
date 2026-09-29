@@ -18,16 +18,16 @@
 <body class="employee-page">
   <div class="app-shell">
     <aside class="sidebar employee-sidebar">
-      <a class="brand" href="dashboard.html" aria-label="AgroGest, mi dashboard"><span class="brand-mark"
+      <a class="brand" href="dashboard.php" aria-label="AgroGest, mi dashboard"><span class="brand-mark"
           aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
       <nav class="main-nav" aria-label="Navegación del empleado">
         <p class="nav-label">Mi espacio</p>
-        <a class="nav-item" href="dashboard.html"><span class="nav-icon" aria-hidden="true">▦</span><span>Mi
+        <a class="nav-item" href="dashboard.php"><span class="nav-icon" aria-hidden="true">▦</span><span>Mi
             Dashboard</span></a>
-        <a class="nav-item is-active" href="actividades.html" aria-current="page"><span class="nav-icon"
+        <a class="nav-item is-active" href="actividades.php" aria-current="page"><span class="nav-icon"
             aria-hidden="true">◷</span><span>Mis actividades</span></a>
       </nav>
-      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+      <div class="sidebar-footer"><a class="logout-link" href="../index.php"><span class="nav-icon"
             aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
     </aside>
 
@@ -91,7 +91,7 @@
                 <option>Fertilización</option>
               </select></div>
             <div class="filter-actions"><button class="filter-submit" type="submit">Filtrar <span
-                  aria-hidden="true">→</span></button><a class="clear-filters" href="actividades.html">Limpiar</a></div>
+                  aria-hidden="true">→</span></button><a class="clear-filters" href="actividades.php">Limpiar</a></div>
           </form>
         </section>
 

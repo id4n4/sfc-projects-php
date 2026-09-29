@@ -18,16 +18,16 @@
 <body class="employee-page">
   <div class="app-shell">
     <aside class="sidebar employee-sidebar">
-      <a class="brand" href="dashboard.html" aria-label="AgroGest, mi dashboard"><span class="brand-mark"
+      <a class="brand" href="dashboard.php" aria-label="AgroGest, mi dashboard"><span class="brand-mark"
           aria-hidden="true">+</span><span>Agro<span>Gest</span></span></a>
       <nav class="main-nav" aria-label="Navegación del empleado">
         <p class="nav-label">Mi espacio</p>
-        <a class="nav-item is-active" href="dashboard.html" aria-current="page"><span class="nav-icon"
+        <a class="nav-item is-active" href="dashboard.php" aria-current="page"><span class="nav-icon"
             aria-hidden="true">▦</span><span>Mi Dashboard</span></a>
-        <a class="nav-item" href="actividades.html"><span class="nav-icon" aria-hidden="true">◷</span><span>Mis
+        <a class="nav-item" href="actividades.php"><span class="nav-icon" aria-hidden="true">◷</span><span>Mis
             actividades</span></a>
       </nav>
-      <div class="sidebar-footer"><a class="logout-link" href="../index.html"><span class="nav-icon"
+      <div class="sidebar-footer"><a class="logout-link" href="../index.php"><span class="nav-icon"
             aria-hidden="true">↪</span><span>Cerrar sesión</span></a></div>
     </aside>
 
@@ -123,7 +123,7 @@
             </table>
           </div>
           <div class="table-footer"><span>Mostrando tus últimos <strong>5</strong> registros</span><a
-              href="actividades.html">Ver mis actividades <span aria-hidden="true">→</span></a></div>
+              href="actividades.php">Ver mis actividades <span aria-hidden="true">→</span></a></div>
         </section>
 
         <div class="section-title-row">
@@ -182,7 +182,7 @@
             <p class="section-kicker">Nueva jornada</p>
             <h2>¿Ya terminaste una labor?</h2>
             <p>Registra tu actividad para mantener actualizado tu rendimiento.</p>
-          </div><a class="primary-register" href="actividades.html"><span aria-hidden="true">+</span> Registrar
+          </div><a class="primary-register" href="actividades.php"><span aria-hidden="true">+</span> Registrar
             actividad</a>
         </section>
       </div>
