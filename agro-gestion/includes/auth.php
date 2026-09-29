@@ -2,7 +2,7 @@
 session_start();
 function requireLogin()
 {
-  if (!isset($_SESSION["isLogin"])) {
+  if (!isset($_SESSION["userId"])) {
     header("location: index.php");
     exit();
   }
@@ -25,12 +25,13 @@ function justEmployee()
 
 function redirectIfLoggedIn()
 {
-  if (isset($_SESSION["isLogin"])) {
+  if (isset($_SESSION["userId"])) {
     if (isset($_SESSION["userType"]) && $_SESSION['userType'] === 'admin') {
       header("location: ./admin/dashboard.php");
+      exit();
     } else if (isset($_SESSION["userType"]) && $_SESSION["userType"] === 'empleado') {
       header('location: ./empleado/dashboard.php');
+      exit();
     }
-    exit();
   }
 }

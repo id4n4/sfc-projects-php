@@ -1,3 +1,19 @@
+<?php
+require("../config/conexion.php");
+require("../includes/helpers.php");
+require("../includes/auth.php");
+
+requireLogin();
+justAdmin();
+
+$name = $_SESSION["userName"];
+$rol = $_SESSION["userType"];
+$initials = getInitials($name);
+$today = getToday();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,7 +38,7 @@
         <span class="brand-mark" aria-hidden="true">+</span>
         <span>Agro<span>Gest</span></span>
       </a>
-
+      <!-- MARK: NAV -->
       <nav class="main-nav" aria-label="Navegación principal">
         <p class="nav-label">Espacio de trabajo</p>
         <a class="nav-item is-active" href="dashboard.php" aria-current="page">
@@ -48,7 +64,7 @@
       </nav>
 
       <div class="sidebar-footer">
-        <a class="logout-link" href="../index.php">
+        <a class="logout-link" href="../logout.php">
           <span class="nav-icon" aria-hidden="true">↪</span>
           <span>Cerrar sesión</span>
         </a>
@@ -56,21 +72,23 @@
     </aside>
 
     <main class="main-content">
+      <!-- MARK: MAIN HEADER -->
       <header class="topbar">
         <div class="page-heading">
-          <p class="breadcrumb">Resumen general <span>/</span> Hoy, 24 junio 2024</p>
+          <p class="breadcrumb">Resumen general <span>/</span> <?= htmlspecialchars($today) ?></p>
           <h1>Dashboard</h1>
           <p>Resumen general de tu explotación agrícola</p>
         </div>
         <div class="user-menu">
           <div class="user-copy">
-            <strong>Julián Moreno</strong>
-            <span>Jefe de explotación</span>
+            <strong><?= htmlspecialchars($name) ?></strong>
+            <span><?= htmlspecialchars($rol) ?></span>
           </div>
-          <div class="avatar" aria-label="Avatar de Julián Moreno">JM</div>
+          <div class="avatar"><?= htmlspecialchars($initials) ?></div>
         </div>
       </header>
 
+      <!-- MARK: CONTENT -->
       <div class="content-inner">
         <section class="stats-grid" aria-label="Estadísticas principales">
           <article class="stat-card">

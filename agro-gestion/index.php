@@ -1,3 +1,42 @@
+<?php
+require("./config/conexion.php");
+require("./includes/auth.php");
+
+redirectIfLoggedIn();
+
+$error = "";
+$email = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = $_POST['email'] ?? '';
+  $password = $_POST['password'] ?? '';
+
+  try {
+    //code...
+    $pdo = connect();
+    $stmt = $pdo->prepare('SELECT * FROM usuario WHERE email = ? LIMIT 1');
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if (password_verify($password, $user['pass'])) {
+      $_SESSION['userId'] = $user['id'];
+      $_SESSION['userType'] = $user['rol'];
+      $_SESSION['userName'] = $user['nombre'];
+      header('location: index.php');
+      exit();
+
+    } else {
+      $error = 'Contraseña incorrecta';
+    }
+  } catch (PDOException $e) {
+    //throw $th;
+    $error = $e->getMessage();
+  }
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -50,10 +89,14 @@
           <p>Consulta el estado de tu operación agrícola.</p>
         </div>
 
-        <form class="auth-form" action="#" method="post">
+        <form class="auth-form" action="index.php" method="post">
+          <?php if ($error): ?>
+            <span class="form-message form-message--error" role="alert"><?= htmlspecialchars($error) ?></span>
+          <?php endif; ?>
           <div class="field-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="nombre@empresa.com" autocomplete="email" required>
+            <input type="email" id="email" name="email" placeholder="nombre@empresa.com" autocomplete="email" required
+              value="<?= htmlspecialchars($email) ?>">
           </div>
           <div class="field-group">
             <div class="label-row">
