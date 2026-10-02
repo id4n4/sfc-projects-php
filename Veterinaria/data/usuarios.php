@@ -1,6 +1,6 @@
 <?php
-// Cuentas de demostracion para practicar login y roles.
-// Contrasenas locales: laura@huellaviva.test -> huella123
+// Cuentas de demostración para practicar login y roles.
+// Contraseñas locales: laura@huellaviva.test -> huella123
 //                      marcos@huellaviva.test -> vet2026
 // Los valores de 'clave' son hashes para verificar con password_verify().
 

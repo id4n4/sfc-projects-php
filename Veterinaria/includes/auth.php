@@ -1,15 +1,16 @@
 <?php
 session_start();
-require('../data/usuarios.php');
-require('../classes/Usuario.php');
+require('data/usuarios.php');
+require('classes/Usuario.php');
+
 function EncontrarUsuarioPorEmail($email): ?Usuario
 {
   global $usuarios;
 
   $usuarioEncontrado = null;
   foreach ($usuarios as $usuario) {
-    if ($usuario->email === $email) {
-      $usuarioEncontrado = new Usuario($usuario->id, $usuario->nombre, $usuario->email, $usuario->clave, $usuario->rol, $usuario->activo);
+    if ($usuario['email'] === $email) {
+      $usuarioEncontrado = new Usuario($usuario['id'], $usuario['nombre'], $usuario['email'], $usuario['clave'], $usuario['rol'], $usuario['activo']);
       break;
     }
   }

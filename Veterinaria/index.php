@@ -1,5 +1,4 @@
 <?php
-require("data/usuarios.php");
 require("includes/auth.php");
 
 redirectIfLoggedIn();
@@ -49,8 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body class="login-page">
   <main class="login-layout">
     <section class="login-story" aria-label="Huella Viva">
-      <a class="brand brand-light" href="index.php"><span class="brand-mark">HV</span><span>Huella
-          <strong>Viva</strong></span></a>
+      <a class="brand brand-light" href="index.php">
+        <span class="brand-mark">HV</span><span>Huella<strong>Viva</strong></span>
+      </a>
       <div class="story-copy">
         <p class="eyebrow">Centro veterinario</p>
         <h1>Cuidamos de quienes hacen hogar.</h1>
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p class="eyebrow">Área del equipo</p>
         <h2 id="login-title">Bienvenido de nuevo</h2>
         <p class="muted">Introduce tus datos para acceder a la clínica.</p>
-        <form action="dashboard.php" method="get" class="form-stack">
+        <form action="index.php" method="post" class="form-stack">
           <div class="field">
             <label for="email">Correo electrónico</label>
             <input id="email" name="email" type="email" placeholder="nombre@clinicahuella.es" autocomplete="username"
@@ -75,8 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input id="password" name="password" type="password" placeholder="Tu contraseña"
               autocomplete="current-password" required>
           </div>
-          <button class="button button-primary button-wide" type="submit">Iniciar sesión <span
-              aria-hidden="true">→</span></button>
+          <button class="button button-primary button-wide" type="submit">
+            Iniciar sesión <span aria-hidden="true">→</span>
+          </button>
         </form>
         <p class="form-footnote">Acceso exclusivo para personal autorizado.</p>
       </div>
