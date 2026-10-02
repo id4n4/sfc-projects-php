@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nueva cita | Huella Viva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+          <strong>Viva</strong></span></a>
+      <p class="sidebar-label">Clínica</p>
+      <nav class="side-nav" aria-label="Navegacion principal">
+        <a class="nav-link" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link is-active" href="citas.html"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
+              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="index.html">Cerrar
+          sesión <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><span>Jueves, 12 de junio de 2025</span><span class="clinic-status"><i></i> Clínica
+          abierta</span></header>
+      <section class="page-content form-page">
+        <a class="back-link" href="citas.html">← Volver a citas</a>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Agenda</p>
+            <h1>Programar una cita</h1>
+            <p class="muted">Completa los datos para reservar una visita.</p>
+          </div>
+        </div>
+        <form class="form-panel" action="citas.html" method="get">
+          <div class="form-section">
+            <h2>Datos de la visita</h2>
+            <p class="muted">Asocia la cita a un paciente registrado.</p>
+            <div class="form-grid">
+              <div class="field field-full"><label for="patient">Paciente *</label><select id="patient"
+                  name="patient_id" required>
+                  <option value="">Selecciona un paciente</option>
+                  <option value="1">Nala · Perro · Ana Ruiz</option>
+                  <option value="2">Miso · Gato · Pablo León</option>
+                  <option value="3">Bruno · Perro · Eva Martín</option>
+                  <option value="4">Lima · Conejo · Sara Vega</option>
+                </select><small class="field-hint">¿No aparece? <a href="nuevo-paciente.html">Registra un
+                    paciente</a>.</small></div>
+              <div class="field"><label for="date">Fecha *</label><input id="date" name="date" type="date" required>
+              </div>
+              <div class="field"><label for="time">Hora *</label><input id="time" name="time" type="time" required>
+              </div>
+              <div class="field"><label for="reason">Motivo de consulta *</label><select id="reason" name="reason"
+                  required>
+                  <option value="">Selecciona un motivo</option>
+                  <option>Consulta general</option>
+                  <option>Revisión</option>
+                  <option>Vacunación</option>
+                  <option>Urgencia</option>
+                  <option>Cirugía</option>
+                  <option>Otro</option>
+                </select></div>
+              <div class="field"><label for="vet">Veterinario *</label><select id="vet" name="vet_id" required>
+                  <option value="">Selecciona un profesional</option>
+                  <option value="1">Dr. Marcos Gil</option>
+                  <option value="2">Dra. Irene Soler</option>
+                </select></div>
+              <div class="field field-full"><label for="notes">Notas</label><textarea id="notes" name="notes" rows="4"
+                  placeholder="Sintomas, preparacion u otra informacion relevante"></textarea></div>
+            </div>
+          </div>
+          <div class="form-actions"><a class="button button-secondary" href="citas.html">Cancelar</a><button
+              class="button button-primary" type="submit">Guardar cita</button></div>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

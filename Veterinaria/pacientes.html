@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pacientes | Huella Viva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+          <strong>Viva</strong></span></a>
+      <p class="sidebar-label">Clínica</p>
+      <nav class="side-nav" aria-label="Navegacion principal">
+        <a class="nav-link" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link" href="citas.html"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link is-active" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
+              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="index.html">Cerrar
+          sesión <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><span>Jueves, 12 de junio de 2025</span><span class="clinic-status"><i></i> Clínica
+          abierta</span></header>
+      <section class="page-content">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Fichas de la clínica</p>
+            <h1>Pacientes</h1>
+            <p class="muted">Consulta los animales y los datos de sus responsables.</p>
+          </div><a class="button button-primary" href="nuevo-paciente.html">+ Nuevo paciente</a>
+        </div>
+        <div class="toolbar">
+          <div class="search-field"><label class="sr-only" for="patient-search">Buscar pacientes</label><span
+              aria-hidden="true">⌕</span><input id="patient-search" type="search"
+              placeholder="Buscar por nombre, especie o responsable"></div>
+          <p class="result-count">248 pacientes</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Paciente</th>
+                <th>Especie</th>
+                <th>Raza</th>
+                <th>Responsable</th>
+                <th>Ultima visita</th>
+                <th><span class="sr-only">Acciones</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="patient-name">Nala</span><small class="table-sub">HV-0001 · Hembra · 4 años</small>
+                </td>
+                <td>Perro</td>
+                <td>Labrador</td>
+                <td>Ana Ruiz<small class="table-sub">600 123 456</small></td>
+                <td>12 jun 2025</td>
+                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+              </tr>
+              <tr>
+                <td><span class="patient-name">Miso</span><small class="table-sub">HV-0002 · Macho · 2 años</small></td>
+                <td>Gato</td>
+                <td>Común europeo</td>
+                <td>Pablo León<small class="table-sub">611 234 567</small></td>
+                <td>28 may 2025</td>
+                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+              </tr>
+              <tr>
+                <td><span class="patient-name">Bruno</span><small class="table-sub">HV-0003 · Macho · 7 años</small>
+                </td>
+                <td>Perro</td>
+                <td>Beagle</td>
+                <td>Eva Martín<small class="table-sub">622 345 678</small></td>
+                <td>05 jun 2025</td>
+                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+              </tr>
+              <tr>
+                <td><span class="patient-name">Lima</span><small class="table-sub">HV-0004 · Hembra · 3 años</small>
+                </td>
+                <td>Conejo</td>
+                <td>Enano</td>
+                <td>Sara Vega<small class="table-sub">633 456 789</small></td>
+                <td>12 jun 2025</td>
+                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="demo-note">Datos de ejemplo · La busqueda y las fichas se conectaran al implementar PHP.</p>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

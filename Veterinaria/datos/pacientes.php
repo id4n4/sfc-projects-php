@@ -1,0 +1,55 @@
+<?php
+// responsableId corresponde a un id de datos/responsables.php.
+
+$pacientes = [
+  [
+    'id' => 1,
+    'nombre' => 'Nala',
+    'especie' => 'Perro',
+    'raza' => 'Labrador',
+    'fechaNacimiento' => '2021-03-18',
+    'sexo' => 'Hembra',
+    'microchip' => '941000012345678',
+    'responsableId' => 1,
+  ],
+  [
+    'id' => 2,
+    'nombre' => 'Miso',
+    'especie' => 'Gato',
+    'raza' => 'Común europeo',
+    'fechaNacimiento' => '2023-01-11',
+    'sexo' => 'Macho',
+    'microchip' => '941000023456789',
+    'responsableId' => 2,
+  ],
+  [
+    'id' => 3,
+    'nombre' => 'Bruno',
+    'especie' => 'Perro',
+    'raza' => 'Beagle',
+    'fechaNacimiento' => '2017-08-04',
+    'sexo' => 'Macho',
+    'microchip' => '941000034567890',
+    'responsableId' => 3,
+  ],
+  [
+    'id' => 4,
+    'nombre' => 'Lima',
+    'especie' => 'Conejo',
+    'raza' => 'Enano',
+    'fechaNacimiento' => '2022-02-01',
+    'sexo' => 'Hembra',
+    'microchip' => null,
+    'responsableId' => 4,
+  ],
+  [
+    'id' => 5,
+    'nombre' => 'Toby',
+    'especie' => 'Perro',
+    'raza' => 'Mestizo',
+    'fechaNacimiento' => '2020-09-15',
+    'sexo' => 'Macho',
+    'microchip' => '941000045678901',
+    'responsableId' => 5,
+  ],
+];
