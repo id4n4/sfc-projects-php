@@ -1,3 +1,7 @@
+<?php
+require("includes/auth.php");
+requireLogin();
+?>
 <!doctype html>
 <html lang="es">
 
@@ -11,18 +15,18 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+      <a class="brand" href="dashboard.php"><span class="brand-mark">HV</span><span>Huella
           <strong>Viva</strong></span></a>
       <p class="sidebar-label">Clínica</p>
       <nav class="side-nav" aria-label="Navegacion principal">
-        <a class="nav-link is-active" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
-        <a class="nav-link" href="citas.html"><span class="nav-indicator"></span>Citas</a>
-        <a class="nav-link" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+        <a class="nav-link is-active" href="dashboard.php"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link" href="citas.php"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link" href="pacientes.php"><span class="nav-indicator"></span>Pacientes</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
               Martín</strong><small>Administración</small></span></div>
-        <a class="logout-link" href="index.html">Cerrar sesión <span aria-hidden="true">↗</span></a>
+        <a class="logout-link" href="logout.php">Cerrar sesión <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
 
@@ -36,7 +40,7 @@
             <h1>Buenos días, Laura</h1>
             <p class="muted">Esto es lo que ocurre hoy en la clínica.</p>
           </div>
-          <a class="button button-primary" href="nueva-cita.html">+ Nueva cita</a>
+          <a class="button button-primary" href="nueva-cita.php">+ Nueva cita</a>
         </div>
 
         <section class="metric-grid" aria-label="Resumen de actividad">
@@ -53,7 +57,7 @@
             <div>
               <p class="eyebrow">Agenda</p>
               <h2 id="today-title">Citas de hoy</h2>
-            </div><a class="text-link" href="citas.html">Ver agenda completa <span aria-hidden="true">→</span></a>
+            </div><a class="text-link" href="citas.php">Ver agenda completa <span aria-hidden="true">→</span></a>
           </div>
           <div class="table-wrap">
             <table>
@@ -106,7 +110,7 @@
               <p>La reunión semanal está prevista para hoy a las 14:00.</p>
             </div>
           </div>
-          <a class="quick-link" href="nuevo-paciente.html"><span><strong>Registrar paciente</strong><small>Añade una
+          <a class="quick-link" href="nuevo-paciente.php"><span><strong>Registrar paciente</strong><small>Añade una
                 nueva ficha a la clínica</small></span><span aria-hidden="true">→</span></a>
         </section>
       </section>

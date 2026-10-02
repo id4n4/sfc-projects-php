@@ -1,3 +1,7 @@
+<?php
+require("includes/auth.php");
+requireLogin();
+?>
 <!doctype html>
 <html lang="es">
 
@@ -11,17 +15,17 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+      <a class="brand" href="dashboard.php"><span class="brand-mark">HV</span><span>Huella
           <strong>Viva</strong></span></a>
       <p class="sidebar-label">Clínica</p>
       <nav class="side-nav" aria-label="Navegacion principal">
-        <a class="nav-link" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
-        <a class="nav-link is-active" href="citas.html"><span class="nav-indicator"></span>Citas</a>
-        <a class="nav-link" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+        <a class="nav-link" href="dashboard.php"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link is-active" href="citas.php"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link" href="pacientes.php"><span class="nav-indicator"></span>Pacientes</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
-              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="index.html">Cerrar
+              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="logout.php">Cerrar
           sesión <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
@@ -34,7 +38,7 @@
             <p class="eyebrow">Organización</p>
             <h1>Agenda de citas</h1>
             <p class="muted">Consulta y gestiona las visitas de la clínica.</p>
-          </div><a class="button button-primary" href="nueva-cita.html">+ Nueva cita</a>
+          </div><a class="button button-primary" href="nueva-cita.php">+ Nueva cita</a>
         </div>
         <div class="toolbar">
           <div class="filter-group"><label class="sr-only" for="date-filter">Filtrar por fecha</label><input
@@ -66,7 +70,7 @@
                 <td>Revisión anual</td>
                 <td>Dr. Marcos Gil</td>
                 <td><span class="status status-confirmed">Confirmada</span></td>
-                <td><a class="row-action" href="nueva-cita.html" aria-label="Editar cita de Nala">Editar</a></td>
+                <td><a class="row-action" href="nueva-cita.php" aria-label="Editar cita de Nala">Editar</a></td>
               </tr>
               <tr>
                 <td class="time-cell">12 jun · 10:15</td>
@@ -74,7 +78,7 @@
                 <td>Vacunación</td>
                 <td>Dra. Irene Soler</td>
                 <td><span class="status status-pending">Pendiente</span></td>
-                <td><a class="row-action" href="nueva-cita.html" aria-label="Editar cita de Miso">Editar</a></td>
+                <td><a class="row-action" href="nueva-cita.php" aria-label="Editar cita de Miso">Editar</a></td>
               </tr>
               <tr>
                 <td class="time-cell">12 jun · 11:00</td>
@@ -82,7 +86,7 @@
                 <td>Consulta general</td>
                 <td>Dr. Marcos Gil</td>
                 <td><span class="status status-confirmed">Confirmada</span></td>
-                <td><a class="row-action" href="nueva-cita.html" aria-label="Editar cita de Bruno">Editar</a></td>
+                <td><a class="row-action" href="nueva-cita.php" aria-label="Editar cita de Bruno">Editar</a></td>
               </tr>
               <tr>
                 <td class="time-cell">12 jun · 11:45</td>
@@ -90,7 +94,7 @@
                 <td>Revisión postoperatoria</td>
                 <td>Dra. Irene Soler</td>
                 <td><span class="status status-pending">Pendiente</span></td>
-                <td><a class="row-action" href="nueva-cita.html" aria-label="Editar cita de Lima">Editar</a></td>
+                <td><a class="row-action" href="nueva-cita.php" aria-label="Editar cita de Lima">Editar</a></td>
               </tr>
               <tr>
                 <td class="time-cell">12 jun · 12:30</td>
@@ -98,7 +102,7 @@
                 <td>Consulta dermatológica</td>
                 <td>Dr. Marcos Gil</td>
                 <td><span class="status status-cancelled">Cancelada</span></td>
-                <td><a class="row-action" href="nueva-cita.html" aria-label="Editar cita de Toby">Editar</a></td>
+                <td><a class="row-action" href="nueva-cita.php" aria-label="Editar cita de Toby">Editar</a></td>
               </tr>
             </tbody>
           </table>

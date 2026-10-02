@@ -4,8 +4,12 @@
     "Basicas",
     "conexion",
     "descripcion",
+    "direccion",
     "exito",
     "gestion",
+    "htmlspecialchars",
+    "reprogramar",
+    "telefono",
     "unicode"
   ]
 }

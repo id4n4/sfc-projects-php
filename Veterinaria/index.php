@@ -1,3 +1,40 @@
+<?php
+require("data/usuarios.php");
+require("includes/auth.php");
+
+redirectIfLoggedIn();
+
+$error = "";
+$email = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = $_POST['email'] ?? '';
+  $password = $_POST['password'] ?? '';
+
+  // Buscar el usuario por correo electrónico
+  $usuarioEncontrado = EncontrarUsuarioPorEmail($email);
+
+  if ($usuarioEncontrado?->verificarPassword($password)) {
+    // Usuario autenticado correctamente
+    if (!$usuarioEncontrado->estaActivo()) {
+      $error = "Tu cuenta está desactivada. Contacta con el administrador.";
+    } else {
+      // Redirigir al dashboard o página principal del sistema
+      $_SESSION['ID'] = $usuarioEncontrado->id;
+      $_SESSION['nombre'] = $usuarioEncontrado->nombre;
+      $_SESSION['rol'] = $usuarioEncontrado->rol;
+      header("Location: dashboard.php");
+      exit();
+    }
+  } else {
+    // Credenciales incorrectas
+    $error = "Correo electrónico o contraseña incorrectos.";
+  }
+}
+
+
+
+?>
 <!doctype html>
 <html lang="es">
 
@@ -12,7 +49,7 @@
 <body class="login-page">
   <main class="login-layout">
     <section class="login-story" aria-label="Huella Viva">
-      <a class="brand brand-light" href="index.html"><span class="brand-mark">HV</span><span>Huella
+      <a class="brand brand-light" href="index.php"><span class="brand-mark">HV</span><span>Huella
           <strong>Viva</strong></span></a>
       <div class="story-copy">
         <p class="eyebrow">Centro veterinario</p>
@@ -27,7 +64,7 @@
         <p class="eyebrow">Área del equipo</p>
         <h2 id="login-title">Bienvenido de nuevo</h2>
         <p class="muted">Introduce tus datos para acceder a la clínica.</p>
-        <form action="dashboard.html" method="get" class="form-stack">
+        <form action="dashboard.php" method="get" class="form-stack">
           <div class="field">
             <label for="email">Correo electrónico</label>
             <input id="email" name="email" type="email" placeholder="nombre@clinicahuella.es" autocomplete="username"

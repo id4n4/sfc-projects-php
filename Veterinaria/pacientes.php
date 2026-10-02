@@ -1,3 +1,8 @@
+<?php
+require("includes/auth.php");
+requireLogin();
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -11,17 +16,17 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+      <a class="brand" href="dashboard.php"><span class="brand-mark">HV</span><span>Huella
           <strong>Viva</strong></span></a>
       <p class="sidebar-label">Clínica</p>
       <nav class="side-nav" aria-label="Navegacion principal">
-        <a class="nav-link" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
-        <a class="nav-link" href="citas.html"><span class="nav-indicator"></span>Citas</a>
-        <a class="nav-link is-active" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+        <a class="nav-link" href="dashboard.php"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link" href="citas.php"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link is-active" href="pacientes.php"><span class="nav-indicator"></span>Pacientes</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
-              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="index.html">Cerrar
+              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="logout.php">Cerrar
           sesión <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
@@ -34,7 +39,7 @@
             <p class="eyebrow">Fichas de la clínica</p>
             <h1>Pacientes</h1>
             <p class="muted">Consulta los animales y los datos de sus responsables.</p>
-          </div><a class="button button-primary" href="nuevo-paciente.html">+ Nuevo paciente</a>
+          </div><a class="button button-primary" href="nuevo-paciente.php">+ Nuevo paciente</a>
         </div>
         <div class="toolbar">
           <div class="search-field"><label class="sr-only" for="patient-search">Buscar pacientes</label><span
@@ -62,7 +67,7 @@
                 <td>Labrador</td>
                 <td>Ana Ruiz<small class="table-sub">600 123 456</small></td>
                 <td>12 jun 2025</td>
-                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+                <td><a class="row-action" href="nueva-cita.php">Nueva cita</a></td>
               </tr>
               <tr>
                 <td><span class="patient-name">Miso</span><small class="table-sub">HV-0002 · Macho · 2 años</small></td>
@@ -70,7 +75,7 @@
                 <td>Común europeo</td>
                 <td>Pablo León<small class="table-sub">611 234 567</small></td>
                 <td>28 may 2025</td>
-                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+                <td><a class="row-action" href="nueva-cita.php">Nueva cita</a></td>
               </tr>
               <tr>
                 <td><span class="patient-name">Bruno</span><small class="table-sub">HV-0003 · Macho · 7 años</small>
@@ -79,7 +84,7 @@
                 <td>Beagle</td>
                 <td>Eva Martín<small class="table-sub">622 345 678</small></td>
                 <td>05 jun 2025</td>
-                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+                <td><a class="row-action" href="nueva-cita.php">Nueva cita</a></td>
               </tr>
               <tr>
                 <td><span class="patient-name">Lima</span><small class="table-sub">HV-0004 · Hembra · 3 años</small>
@@ -88,7 +93,7 @@
                 <td>Enano</td>
                 <td>Sara Vega<small class="table-sub">633 456 789</small></td>
                 <td>12 jun 2025</td>
-                <td><a class="row-action" href="nueva-cita.html">Nueva cita</a></td>
+                <td><a class="row-action" href="nueva-cita.php">Nueva cita</a></td>
               </tr>
             </tbody>
           </table>

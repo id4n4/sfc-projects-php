@@ -1,3 +1,8 @@
+<?php
+require("includes/auth.php");
+requireLogin();
+?>
+
 <!doctype html>
 <html lang="es">
 
@@ -11,17 +16,17 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="dashboard.html"><span class="brand-mark">HV</span><span>Huella
+      <a class="brand" href="dashboard.php"><span class="brand-mark">HV</span><span>Huella
           <strong>Viva</strong></span></a>
       <p class="sidebar-label">Clínica</p>
       <nav class="side-nav" aria-label="Navegacion principal">
-        <a class="nav-link" href="dashboard.html"><span class="nav-indicator"></span>Resumen</a>
-        <a class="nav-link" href="citas.html"><span class="nav-indicator"></span>Citas</a>
-        <a class="nav-link is-active" href="pacientes.html"><span class="nav-indicator"></span>Pacientes</a>
+        <a class="nav-link" href="dashboard.php"><span class="nav-indicator"></span>Resumen</a>
+        <a class="nav-link" href="citas.php"><span class="nav-indicator"></span>Citas</a>
+        <a class="nav-link is-active" href="pacientes.php"><span class="nav-indicator"></span>Pacientes</a>
       </nav>
       <div class="sidebar-bottom">
         <div class="user-chip"><span class="avatar">LM</span><span><strong>Laura
-              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="index.html">Cerrar
+              Martín</strong><small>Administración</small></span></div><a class="logout-link" href="logout.php">Cerrar
           sesión <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
@@ -29,7 +34,7 @@
       <header class="topbar"><span>Jueves, 12 de junio de 2025</span><span class="clinic-status"><i></i> Clínica
           abierta</span></header>
       <section class="page-content form-page">
-        <a class="back-link" href="pacientes.html">← Volver a pacientes</a>
+        <a class="back-link" href="pacientes.php">← Volver a pacientes</a>
         <div class="page-heading">
           <div>
             <p class="eyebrow">Fichas de la clínica</p>
@@ -37,7 +42,7 @@
             <p class="muted">Añade el animal y los datos de su responsable.</p>
           </div>
         </div>
-        <form class="form-panel" action="pacientes.html" method="get">
+        <form class="form-panel" action="pacientes.php" method="get">
           <div class="form-section">
             <h2>Datos del paciente</h2>
             <div class="form-grid">
@@ -77,7 +82,7 @@
                   type="text" placeholder="Calle, número, ciudad"></div>
             </div>
           </div>
-          <div class="form-actions"><a class="button button-secondary" href="pacientes.html">Cancelar</a><button
+          <div class="form-actions"><a class="button button-secondary" href="pacientes.php">Cancelar</a><button
               class="button button-primary" type="submit">Guardar paciente</button></div>
         </form>
       </section>
