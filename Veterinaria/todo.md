@@ -28,8 +28,8 @@ El proyecto usará arrays PHP estáticos, como `gimnasio/socios.php`; no utiliza
    - [x]Cambiar los enlaces “Cerrar sesión” de esos cinco archivos para que apunten a `logout.php`.
 
 4. **Implementar pacientes y responsables**
-   - Crear `classes/Responsable.php` y `classes/Paciente.php`, con constructores que reciban los datos de cada array.
-   - En `pacientes.php`, combinar `data/pacientes.php` con `data/responsables.php` para mostrar responsable, especie y última visita.
+   - [x] Crear `classes/Responsable.php` y `classes/Paciente.php`, con constructores que reciban los datos de cada array.
+   - [x]En `pacientes.php`, combinar `data/pacientes.php` con `data/responsables.php` para mostrar responsable, especie y última visita.
    - En `nuevo-paciente.php`, procesar el formulario y validar nombre, especie y datos obligatorios del responsable.
    - Crear `includes/helpers.php` si necesitas funciones compartidas para buscar un elemento por ID o escapar valores.
    - Elegir explícitamente si el formulario solo muestra un resultado de demostración o copia los arrays a `$_SESSION`; no modifica permanentemente los archivos de `data/`.

@@ -17,6 +17,20 @@ function EncontrarUsuarioPorEmail($email): ?Usuario
   return $usuarioEncontrado;
 }
 
+function encontrarUsuarioPorID($id): ?Usuario
+{
+  global $usuarios;
+
+  $usuarioEncontrado = null;
+  foreach ($usuarios as $usuario) {
+    if ($usuario['id'] === $id) {
+      $usuarioEncontrado = new Usuario($usuario['id'], $usuario['nombre'], $usuario['email'], $usuario['clave'], $usuario['rol'], $usuario['activo']);
+      break;
+    }
+  }
+  return $usuarioEncontrado;
+}
+
 function requireLogin()
 {
   if (!isset($_SESSION['ID'])) {
