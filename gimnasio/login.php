@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'socios.php';
+$socios = $socios ?? [];
 
 if (isset($_SESSION['email_socio'])) {
   header('Location: panel.php');
