@@ -542,6 +542,25 @@ a:focus-visible {
   line-height: 1.5;
 }
 
+.status-select {
+  min-height: 40px;
+  padding: 0 32px 0 12px;
+  border: 1px solid #dce2ec;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  color: #202b3c;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.status-select:focus {
+  border-color: #7888ed;
+  box-shadow: 0 0 0 4px rgba(120, 136, 237, 0.14);
+}
+
 .project-cards {
   display: grid;
   gap: 12px;

@@ -6,21 +6,30 @@ requireLogin();
 
 $pdo = connect();
 $error = '';
-$projectId = $_GET['id-project'];
+$projectId = $_GET['id-project'] ?? $_POST['id-project'] ?? '';
 $userName = $_SESSION['user_name'] ?? 'Usuario';
-$tasks = [];
+$taskName = '';
+$taskDescription = '';
+$taskStartDate = '';
+$taskEndDate = '';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $taskName = $_POST['nombre'];
-  $taskDescription = $_POST['descripcion'];
-  $taskStartDate = $_POST['fecha_inicio'];
-  $taskEndDate = $_POST['fecha_fin'];
-
   try {
-    $stmt = $pdo->prepare('INSERT INTO proyecto (id_proyecto, nombre, descripcion, fecha_inicio, fecha_fin) VALUE (?, ?, ?, ?, ?)');
-    $stmt->execute([$projectId, $taskName, $taskDescription, $taskStartDate, $taskEndDate]);
-    header("location: task.php?id-project=$projectId");
+    $deleteId = $_POST['delete_id'];
+    if ($deleteId) {
+      $stmt = $pdo->prepare('DELETE FROM tarea WHERE id = ?');
+      $stmt->execute([$deleteId]);
+    } else {
+      $taskName = $_POST['nombre'];
+      $taskDescription = $_POST['descripcion'];
+      $taskStartDate = $_POST['fecha_inicio'];
+      $taskEndDate = $_POST['fecha_fin'];
+
+      $stmt = $pdo->prepare('INSERT INTO tarea (id_proyecto, nombre, descripcion, fecha_inicio, fecha_fin) VALUE (?, ?, ?, ?, ?)');
+      $stmt->execute([$projectId, $taskName, $taskDescription, $taskStartDate, $taskEndDate]);
+    }
+    header('Location: task.php?' . http_build_query(['id-project' => $projectId]));
     exit;
   } catch (PDOException $e) {
     $error = $e->getMessage();
@@ -31,13 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $stmt = $pdo->prepare("SELECT 
     *,
     CASE
-        WHEN COUNT(id) = 0 THEN 'pendiente'
-        WHEN SUM(
-            CURDATE() BETWEEN fecha_inicio AND fecha_fin
-        ) > 0 THEN 'en progreso'
-        WHEN SUM(
-            CURDATE() < fecha_inicio
-        ) > 0 THEN 'pendiente'
+        WHEN CURDATE() BETWEEN fecha_inicio AND fecha_fin THEN 'en progreso'
+        WHEN CURDATE() < fecha_inicio THEN 'pendiente'
         ELSE 'cerrada'
     END AS estado
     FROM tarea
@@ -45,7 +49,7 @@ $stmt = $pdo->prepare("SELECT
     ORDER BY creado_en DESC
     ");
 $stmt->execute([$projectId]);
-$projects = $stmt->fetchAll();
+$tasks = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -80,7 +84,7 @@ $projects = $stmt->fetchAll();
       <div>
         <p class="form-kicker">Proyecto</p>
         <h1 id="page-title">Tareas</h1>
-        <p class="dashboard-intro">Rediseño de marca · Consulta y organiza el trabajo pendiente.</p>
+        <p class="dashboard-intro">Re-diseño de marca · Consulta y organiza el trabajo pendiente.</p>
       </div>
       <a class="logout-button" href="projects.php">Volver a proyectos</a>
     </section>
@@ -92,48 +96,15 @@ $projects = $stmt->fetchAll();
             <h2 id="tasks-title">Tareas del proyecto</h2>
             <p>Estas son las tareas asociadas al proyecto.</p>
           </div>
-          <span class="project-count">3 tareas</span>
+          <select class="status-select" name="" id="statusSelected">
+            <option value="">Todos</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en progreso">En progreso</option>
+            <option value="cerrada">Cerrada</option>
+          </select>
         </div>
 
-        <div class="project-cards">
-          <article class="project-card">
-            <div class="project-card-heading">
-              <h3>Preparar propuesta visual</h3>
-              <span class="project-state is-progress">En progreso</span>
-            </div>
-            <p class="project-description">Crear las primeras opciones de diseño para presentar al cliente.</p>
-            <p class="project-date">Vencimiento: 15/10/2026</p>
-            <form action="task.php" method="post">
-              <input type="hidden" name="task_id" value="1">
-              <button class="logout-button" type="submit" name="delete_task" value="1">Eliminar tarea</button>
-            </form>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-heading">
-              <h3>Reunir referencias</h3>
-              <span class="project-state is-pending">Pendiente</span>
-            </div>
-            <p class="project-description">Recopilar ejemplos y referencias visuales para el proyecto.</p>
-            <p class="project-date">Vencimiento: 18/10/2026</p>
-            <form action="task.php" method="post">
-              <input type="hidden" name="task_id" value="2">
-              <button class="logout-button" type="submit" name="delete_task" value="2">Eliminar tarea</button>
-            </form>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-heading">
-              <h3>Definir calendario de entregas</h3>
-              <span class="project-state is-closed">Completada</span>
-            </div>
-            <p class="project-description">Acordar con el equipo las fechas de revisión y entrega.</p>
-            <p class="project-date">Vencimiento: 12/10/2026</p>
-            <form action="task.php" method="post">
-              <input type="hidden" name="task_id" value="3">
-              <button class="logout-button" type="submit" name="delete_task" value="3">Eliminar tarea</button>
-            </form>
-          </article>
+        <div class="project-cards" id="project-cards">
         </div>
       </section>
 
@@ -145,7 +116,11 @@ $projects = $stmt->fetchAll();
           </div>
         </div>
 
-        <form action="task.php" method="post" class="create-project-form">
+        <?php if ($error !== '') : ?>
+          <div class="error-message" role="alert"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+
+        <form action="task.php?id-project=<?= rawurlencode((string) $projectId) ?>" method="post" class="create-project-form">
           <div class="field">
             <label for="nombre">Nombre</label>
             <input
@@ -154,6 +129,7 @@ $projects = $stmt->fetchAll();
               name="nombre"
               maxlength="150"
               placeholder="Ej. Preparar presentación"
+              value="<?= htmlspecialchars($taskName) ?>"
               required>
           </div>
 
@@ -163,17 +139,17 @@ $projects = $stmt->fetchAll();
               id="descripcion"
               name="descripcion"
               rows="5"
-              placeholder="Describe qué hay que hacer"></textarea>
+              placeholder="Describe qué hay que hacer"><?= htmlspecialchars($taskDescription) ?></textarea>
           </div>
 
           <div class="field">
             <label for="fecha_inicio">Fecha de inicio</label>
-            <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" value="<?= htmlspecialchars($taskStartDate) ?>" required>
           </div>
 
           <div class="field">
             <label for="fecha_fin">Fecha fin</label>
-            <input type="date" id="fecha_fin" name="fecha_fin" required>
+            <input type="date" id="fecha_fin" name="fecha_fin" value="<?= htmlspecialchars($taskEndDate) ?>" required>
           </div>
 
           <button class="submit-button" type="submit" name="create_task" value="1">Crear tarea</button>
@@ -181,6 +157,10 @@ $projects = $stmt->fetchAll();
       </section>
     </div>
   </main>
+  <script>
+    const tasks = <?= json_encode($tasks) ?>
+  </script>
+  <script src="include/task.js"></script>
 </body>
 
 </html>
