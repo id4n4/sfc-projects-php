@@ -14,7 +14,6 @@ $email = $_SESSION['email_tecnico'];
 $nombre = '';
 $especialidad = '';
 $incidencia = '';
-$mensaje = '';
 
 foreach ($tecnicos as $t) {
   if ($t['email'] === $email) {
