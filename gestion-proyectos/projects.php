@@ -7,7 +7,7 @@ requireLogin();
 $pdo = connect();
 $error = '';
 $userId = $_SESSION['user_id'];
-$userName = $_SESSION['user_name'] ?? 'Usuario';
+$userName = $_SESSION['user_name'];
 $projects = [];
 $projectName = '';
 $projectClient = '';
@@ -133,7 +133,8 @@ $projects = $stmt->fetchAll();
                   <p class="project-description is-muted">Sin descripción.</p>
                 <?php endif; ?>
                 <p class="project-date">Creado el <?= htmlspecialchars(date('d/m/Y', strtotime($project['creado_en']))) ?></p>
-                <a href="task.php?id-project=<?= htmlspecialchars($project['id']) ?>">Ir a las tareas</a>
+                <br>
+                <a href="task.php?id-project=<?= htmlspecialchars($project['id']) ?>" class="button">Ir a las tareas</a>
               </article>
             <?php endforeach; ?>
           </div>

@@ -398,6 +398,8 @@ a:focus-visible {
 }
 
 .project-nav {
+  width: 100%;
+  max-width: 1116px;
   min-height: 76px;
   display: flex;
   align-items: center;
@@ -447,6 +449,24 @@ a:focus-visible {
 
 .logout-button:hover {
   border-color: #aab4c5;
+  color: #202b52;
+}
+.button {
+  padding: 9px 13px;
+  border: 1px solid #dce2ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #465168;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  transition: border-color 150ms ease, color 150ms ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #aab4c5;
   color: #202b52;
 }
 
@@ -571,6 +591,7 @@ a:focus-visible {
   border: 1px solid #e8ecf3;
   border-radius: 13px;
   background: #fff;
+  height: fit-content;
 }
 
 .project-card-heading {
@@ -613,7 +634,6 @@ a:focus-visible {
 }
 
 .project-client {
-  margin: 12px 0 0;
   color: #7b8493;
   font-size: 12px;
 }
@@ -624,7 +644,6 @@ a:focus-visible {
 }
 
 .project-description {
-  margin: 12px 0 0;
   color: #566174;
   font-size: 13px;
   line-height: 1.6;
@@ -637,7 +656,6 @@ a:focus-visible {
 }
 
 .project-date {
-  margin: 14px 0 0;
   color: #929aaa;
   font-size: 11px;
 }
