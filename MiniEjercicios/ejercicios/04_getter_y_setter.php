@@ -19,12 +19,12 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Persona
 {
-    private $nombre;
-    private $edad;
+    private int $edad;
 
-    public function __construct($nombre, $edad)
-    {
-        $this->nombre = $nombre;
+    public function __construct(
+        private string $nombre,
+        int $edad
+    ) {
         $this->setEdad($edad);
     }
 
@@ -36,11 +36,14 @@ class Persona
     public function getEdad()            // GETTER: leer
     {
         // TODO 1
+        return $this->edad;
     }
 
     public function setEdad($edad)       // SETTER: cambiar, pero con control
     {
         // TODO 2
+        if ($edad > 0 && $edad <= 120) $this->edad = $edad;
+        else echo "Edad no valida: $edad (no se cambia)\n";
     }
 }
 
