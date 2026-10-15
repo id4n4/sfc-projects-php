@@ -74,7 +74,7 @@ $tasks = $stmt->fetchAll();
       nexo
     </a>
     <div class="project-nav-right">
-      <span class="project-user">Usuario</span>
+      <span class="project-user"><?= htmlspecialchars($userName) ?></span>
       <a class="logout-button" href="logout.php">Cerrar sesión</a>
     </div>
   </header>
