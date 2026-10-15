@@ -18,20 +18,25 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Pedido
 {
-    public $numero;                     // dinámico
-    public $importe;                    // dinámico
+    public int $numero;                     // dinámico
+    public int $importe;                    // dinámico
 
     private static $contador = 0;       // estático
     private static $caja = 0;           // estático
 
-    public function __construct($importe)
+    public function __construct(int $importe)
     {
         // TODO 1
+        self::$contador += 1;
+        $this->numero = self::$contador;
+        $this->importe = $importe;
+        self::$caja += $importe;
     }
 
     public static function resumen()
     {
         // TODO 2
+        return self::$contador . " pedidos · caja total: " . self::$caja . "€";
     }
 }
 
