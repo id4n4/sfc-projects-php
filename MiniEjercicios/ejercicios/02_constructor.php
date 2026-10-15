@@ -14,17 +14,15 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Coche
 {
-    public $marca;
-    public $color;
-
-    public function __construct($marca, $color)
-    {
-        // TODO 1
-    }
+    public function __construct(
+        public string $marca,
+        public string  $color
+    ) {}
 
     public function describir()
     {
         // TODO 2
+        return "Un $this->marca de color $this->color";
     }
 }
 
