@@ -18,17 +18,22 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Calculadora
 {
-    public static function sumar($a, $b)
+    public static function sumar(int $a, int $b)
     {
         return $a + $b;
     }
 
-    public static function doble($numero)
+    public static function doble(int $numero)
     {
         // TODO 1
+        return $numero * 2;
     }
 
     // TODO 2: función estática esPar($numero)
+    public static function esPar(int $numero)
+    {
+        return $numero % 2 === 0;
+    }
 }
 
 echo "3 + 4 = " . Calculadora::sumar(3, 4) . "\n";
