@@ -17,22 +17,20 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Hucha
 {
-    public $dueno;
-    public $dinero = 0;             // TODO 1: cámbialo a private
+    private $dinero = 0;             // TODO 1: cámbialo a private
 
-    public function __construct($dueno)
-    {
-        $this->dueno = $dueno;
-    }
+    public function __construct(public string $dueno) {}
 
     public function meter($cantidad)
     {
         // TODO 2
+        $this->dinero += $cantidad;
     }
 
     public function verDinero()
     {
         // TODO 3
+        return $this->dinero;
     }
 }
 
@@ -44,7 +42,7 @@ echo $hucha->dueno . " tiene " . $hucha->verDinero() . " euros\n";
 
 // Prueba: intentar leer el dinero directamente desde fuera
 try {
-    echo $hucha->dinero;
+    echo $hucha->verDinero();
 } catch (Error $e) {
     echo "ERROR: " . $e->getMessage() . "\n";
 }
