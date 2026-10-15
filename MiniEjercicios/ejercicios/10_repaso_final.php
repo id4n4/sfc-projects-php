@@ -25,9 +25,36 @@ header('Content-Type: text/plain; charset=utf-8');
 // PREGUNTA: ¿podría Jefe usar $this->dni? ¿Por qué?
 
 // TODO: clase Empleado
+class Empleado
+{
+  public static int $plantilla = 0;
+
+  public function __construct(public string $nombre, protected string $sueldo, private string $dni)
+  {
+    self::$plantilla += 1;
+  }
+
+  public function getSueldo()
+  {
+    return $this->sueldo;
+  }
+
+  public function dniOculto()
+  {
+    $lastDigit = substr($this->dni, -4);
+    return "****{$lastDigit}";
+  }
+}
 
 
 // TODO: clase Jefe
+class Jefe extends Empleado
+{
+  public function subirSueldo(int $euros)
+  {
+    $this->sueldo += $euros;
+  }
+}
 
 
 $e = new Empleado("Ana", 1500, "12345678A");
