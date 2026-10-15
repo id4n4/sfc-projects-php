@@ -9,7 +9,7 @@ header('Content-Type: text/plain; charset=utf-8');
 //
 // QUÉ TIENES QUE HACER
 //  1. Declara una variable estática pública $total que empiece en 0.
-//  2. En el constructor, súmale 1 cada vez que se crea un jugador.
+//  2. En el constructor, súmele 1 cada vez que se crea un jugador.
 //
 // RESULTADO ESPERADO
 //  Jugadores al empezar: 0
@@ -18,13 +18,13 @@ header('Content-Type: text/plain; charset=utf-8');
 
 class Jugador
 {
-    public $nombre;
     // TODO 1
+    public static int $total = 0;
 
-    public function __construct($nombre)
+    public function __construct(public string $nombre)
     {
-        $this->nombre = $nombre;
         // TODO 2
+        self::$total += 1;
     }
 }
 

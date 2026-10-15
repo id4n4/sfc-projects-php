@@ -28,17 +28,17 @@ class Producto
         $this->precio = $precio;
     }
 
-    /* TODO */ function etiqueta()
+    public function etiqueta()
     {
         return $this->nombre . ": " . $this->formatear($this->precioConIva());
     }
 
-    /* TODO */ function formatear($numero)
+    protected function formatear($numero)
     {
         return number_format($numero, 2, ',', '.') . " €";
     }
 
-    /* TODO */ function precioConIva()
+    private function precioConIva()
     {
         return $this->precio * 1.21;
     }
@@ -58,13 +58,13 @@ echo $p->etiqueta() . "\n";
 $o = new ProductoOferta("Gorra", 8);
 echo $o->etiquetaOferta() . "\n";
 
-try {
-    echo $p->formatear(5);
-} catch (Error $e) {
-    echo "ERROR: " . $e->getMessage() . "\n";
-}
-try {
-    echo $p->precioConIva();
-} catch (Error $e) {
-    echo "ERROR: " . $e->getMessage() . "\n";
-}
+// try {
+//     echo $p->formatear(5);
+// } catch (Error $e) {
+//     echo "ERROR: " . $e->getMessage() . "\n";
+// }
+// try {
+//     echo $p->precioConIva();
+// } catch (Error $e) {
+//     echo "ERROR: " . $e->getMessage() . "\n";
+// }
