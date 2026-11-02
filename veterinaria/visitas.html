@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Maqueta estática: conviértela en visitas.php. Visitas. El desplegable de mascotas, las filas de la tabla y el mensaje salen de la base de datos. -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visitas · Clínica veterinaria Patitas</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <h1>🐾 Clínica veterinaria Patitas</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="mascotas.html">Mascotas</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="visitas.html">Visitas</a>
+    </nav>
+</header>
+<main>
+<h2>Visitas</h2>
+
+<p id="mensaje" class="mensaje" hidden></p>
+
+<form method="post" class="barra">
+    <input type="hidden" name="accion" value="nueva">
+    <select name="mascota_id" required>
+        <option value="10">Bruno (Sara)</option>
+        <option value="6">Coco (Elena)</option>
+        <option value="5">Kira (Elena)</option>
+        <option value="4">Luna (Elena)</option>
+        <option value="2">Misi (Carmen)</option>
+        <option value="7">Nala (David)</option>
+        <option value="8">Pelusa (David)</option>
+        <option value="3">Rocky (Jorge)</option>
+        <option value="9">Simba (Sara)</option>
+        <option value="1">Toby (Carmen)</option>
+    </select>
+    <input type="text" name="motivo" placeholder="Motivo" required>
+    <input type="text" name="importe" placeholder="Importe €" size="8" required>
+    <button type="submit">Registrar visita</button>
+</form>
+
+<p>
+    <a href="visitas.html">Todas</a> ·
+    <a href="visitas.html">Pendientes de cobro</a>
+</p>
+
+<table>
+    <thead>
+        <tr><th>Fecha</th><th>Mascota</th><th>Cliente</th><th>Motivo</th><th>Importe</th><th>Pagada</th><th></th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>25/10/2026</td>
+            <td>Bruno</td>
+            <td>Sara Ortega Blanco</td>
+            <td>Vacunación</td>
+            <td>35,00 €</td>
+            <td class="pagada">—</td>
+            <td>
+                <form method="post" class="form-cobrar">
+                    <input type="hidden" name="accion" value="cobrar">
+                    <input type="hidden" name="id" value="15">
+                    <button type="submit">Cobrar</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>22/10/2026</td>
+            <td>Kira</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>Limpieza dental</td>
+            <td>120,00 €</td>
+            <td class="pagada">—</td>
+            <td>
+                <form method="post" class="form-cobrar">
+                    <input type="hidden" name="accion" value="cobrar">
+                    <input type="hidden" name="id" value="10">
+                    <button type="submit">Cobrar</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>20/10/2026</td>
+            <td>Toby</td>
+            <td>Carmen López Vidal</td>
+            <td>Radiografía</td>
+            <td>85,00 €</td>
+            <td class="pagada">—</td>
+            <td>
+                <form method="post" class="form-cobrar">
+                    <input type="hidden" name="accion" value="cobrar">
+                    <input type="hidden" name="id" value="3">
+                    <button type="submit">Cobrar</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>14/10/2026</td>
+            <td>Rocky</td>
+            <td>Jorge Romero Gil</td>
+            <td>Herida en la pata</td>
+            <td>45,00 €</td>
+            <td class="pagada">—</td>
+            <td>
+                <form method="post" class="form-cobrar">
+                    <input type="hidden" name="accion" value="cobrar">
+                    <input type="hidden" name="id" value="6">
+                    <button type="submit">Cobrar</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>08/10/2026</td>
+            <td>Nala</td>
+            <td>David Castro Moreno</td>
+            <td>Problemas de piel</td>
+            <td>55,00 €</td>
+            <td class="pagada">08/10/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>05/10/2026</td>
+            <td>Toby</td>
+            <td>Carmen López Vidal</td>
+            <td>Revisión de cadera</td>
+            <td>60,00 €</td>
+            <td class="pagada">05/10/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>03/10/2026</td>
+            <td>Pelusa</td>
+            <td>David Castro Moreno</td>
+            <td>Corte de uñas</td>
+            <td>15,00 €</td>
+            <td class="pagada">03/10/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>01/10/2026</td>
+            <td>Kira</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>Análisis de sangre</td>
+            <td>70,00 €</td>
+            <td class="pagada">01/10/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>28/09/2026</td>
+            <td>Simba</td>
+            <td>Sara Ortega Blanco</td>
+            <td>Revisión anual</td>
+            <td>40,00 €</td>
+            <td class="pagada">28/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>20/09/2026</td>
+            <td>Luna</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>Esterilización</td>
+            <td>150,00 €</td>
+            <td class="pagada">25/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>18/09/2026</td>
+            <td>Nala</td>
+            <td>David Castro Moreno</td>
+            <td>Vacunación</td>
+            <td>35,00 €</td>
+            <td class="pagada">18/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>12/09/2026</td>
+            <td>Rocky</td>
+            <td>Jorge Romero Gil</td>
+            <td>Desparasitación</td>
+            <td>20,00 €</td>
+            <td class="pagada">12/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>10/09/2026</td>
+            <td>Misi</td>
+            <td>Carmen López Vidal</td>
+            <td>Vacunación</td>
+            <td>35,00 €</td>
+            <td class="pagada">10/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>05/09/2026</td>
+            <td>Kira</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>Revisión anual</td>
+            <td>40,00 €</td>
+            <td class="pagada">05/09/2026</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>02/09/2026</td>
+            <td>Toby</td>
+            <td>Carmen López Vidal</td>
+            <td>Vacunación</td>
+            <td>35,00 €</td>
+            <td class="pagada">02/09/2026</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+</main>
+<footer>Práctica IFCD0210 · PHP + MySQL + JavaScript</footer>
+</body>
+</html>

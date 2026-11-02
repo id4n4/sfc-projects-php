@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Maqueta estática: conviértela en clientes.php. Clientes. Las filas de la tabla salen de la base de datos. -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clientes · Clínica veterinaria Patitas</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <h1>🐾 Clínica veterinaria Patitas</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="mascotas.html">Mascotas</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="visitas.html">Visitas</a>
+    </nav>
+</header>
+<main>
+<h2>Clientes</h2>
+
+<table>
+    <thead>
+        <tr><th>Nombre</th><th>Teléfono</th><th>Ciudad</th><th>Mascotas</th><th>Gastado</th><th>Debe</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Carmen López Vidal</td>
+            <td>611223344</td>
+            <td>Madrid</td>
+            <td>2</td>
+            <td>215,00 €</td>
+            <td class="deuda">85,00 €</td>
+        </tr>
+        <tr>
+            <td>David Castro Moreno</td>
+            <td>644556677</td>
+            <td>Leganés</td>
+            <td>2</td>
+            <td>105,00 €</td>
+            <td>0,00 €</td>
+        </tr>
+        <tr>
+            <td>Elena Navarro Ruiz</td>
+            <td>633445566</td>
+            <td>Madrid</td>
+            <td>3</td>
+            <td>380,00 €</td>
+            <td class="deuda">120,00 €</td>
+        </tr>
+        <tr>
+            <td>Jorge Romero Gil</td>
+            <td>622334455</td>
+            <td>Alcorcón</td>
+            <td>1</td>
+            <td>65,00 €</td>
+            <td class="deuda">45,00 €</td>
+        </tr>
+        <tr>
+            <td>Raúl Iglesias Pardo</td>
+            <td>666778899</td>
+            <td>Madrid</td>
+            <td>0</td>
+            <td>0,00 €</td>
+            <td>0,00 €</td>
+        </tr>
+        <tr>
+            <td>Sara Ortega Blanco</td>
+            <td>655667788</td>
+            <td>Alcorcón</td>
+            <td>2</td>
+            <td>75,00 €</td>
+            <td class="deuda">35,00 €</td>
+        </tr>
+    </tbody>
+</table>
+
+</main>
+<footer>Práctica IFCD0210 · PHP + MySQL + JavaScript</footer>
+</body>
+</html>

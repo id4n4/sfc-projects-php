@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Maqueta estática: conviértela en mascotas.php. Listado de mascotas. Las filas de la tabla, el contador y el valor del buscador salen de la base de datos. -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mascotas · Clínica veterinaria Patitas</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <h1>🐾 Clínica veterinaria Patitas</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="mascotas.html">Mascotas</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="visitas.html">Visitas</a>
+    </nav>
+</header>
+<main>
+<h2>Mascotas</h2>
+
+<form method="get" class="barra">
+    <input type="search" name="q" id="buscar" placeholder="Nombre, especie o dueño">
+    <button type="submit">Buscar</button>
+    <a class="boton" href="mascota_nueva.html">+ Nueva mascota</a>
+</form>
+
+<p id="contador">10 mascotas</p>
+
+<table>
+    <thead>
+        <tr><th>Nombre</th><th>Especie</th><th>Raza</th><th>Peso</th><th>Dueño</th><th>Visitas</th></tr>
+    </thead>
+    <tbody id="tabla-mascotas">
+        <tr>
+            <td>Bruno</td>
+            <td>Perro</td>
+            <td>Beagle</td>
+            <td>12,70 kg</td>
+            <td>Sara Ortega Blanco</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Coco</td>
+            <td>Ave</td>
+            <td>Agapornis</td>
+            <td>0,06 kg</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Kira</td>
+            <td>Perro</td>
+            <td>Pastor alemán</td>
+            <td>30,10 kg</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Luna</td>
+            <td>Gato</td>
+            <td><em>Mestizo</em></td>
+            <td>3,80 kg</td>
+            <td>Elena Navarro Ruiz</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Misi</td>
+            <td>Gato</td>
+            <td>Siamés</td>
+            <td>4,20 kg</td>
+            <td>Carmen López Vidal</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Nala</td>
+            <td>Perro</td>
+            <td>Bulldog francés</td>
+            <td>11,40 kg</td>
+            <td>David Castro Moreno</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Pelusa</td>
+            <td>Conejo</td>
+            <td>Belier</td>
+            <td>1,90 kg</td>
+            <td>David Castro Moreno</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Rocky</td>
+            <td>Perro</td>
+            <td><em>Mestizo</em></td>
+            <td>18,00 kg</td>
+            <td>Jorge Romero Gil</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Simba</td>
+            <td>Gato</td>
+            <td>Persa</td>
+            <td>5,10 kg</td>
+            <td>Sara Ortega Blanco</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Toby</td>
+            <td>Perro</td>
+            <td>Labrador</td>
+            <td>32,50 kg</td>
+            <td>Carmen López Vidal</td>
+            <td>3</td>
+        </tr>
+    </tbody>
+</table>
+
+</main>
+<footer>Práctica IFCD0210 · PHP + MySQL + JavaScript</footer>
+</body>
+</html>

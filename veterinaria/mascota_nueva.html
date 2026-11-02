@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Maqueta estática: conviértela en mascota_nueva.php. Alta de mascotas. Los dueños del desplegable salen de la base de datos; la caja de errores se rellena al validar. -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nueva mascota · Clínica veterinaria Patitas</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<header>
+    <h1>🐾 Clínica veterinaria Patitas</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="mascotas.html">Mascotas</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="visitas.html">Visitas</a>
+    </nav>
+</header>
+<main>
+<h2>Nueva mascota</h2>
+
+<div id="errores" class="errores" hidden>
+    <ul></ul>
+</div>
+
+<form method="post" id="form-mascota" class="formulario" novalidate>
+    <label>Nombre <input type="text" name="nombre"></label>
+    <label>Especie
+        <select name="especie">
+            <option value="">— Elige —</option>
+            <option>Perro</option>
+            <option>Gato</option>
+            <option>Ave</option>
+            <option>Conejo</option>
+            <option>Otro</option>
+        </select>
+    </label>
+    <label>Raza (vacío si es mestizo) <input type="text" name="raza"></label>
+    <label>Fecha de nacimiento <input type="date" name="fecha_nacimiento"></label>
+    <label>Peso (kg) <input type="text" name="peso"></label>
+    <label>Dueño
+        <select name="cliente_id">
+            <option value="">— Elige —</option>
+            <option value="1">Carmen López Vidal</option>
+            <option value="4">David Castro Moreno</option>
+            <option value="3">Elena Navarro Ruiz</option>
+            <option value="2">Jorge Romero Gil</option>
+            <option value="6">Raúl Iglesias Pardo</option>
+            <option value="5">Sara Ortega Blanco</option>
+        </select>
+    </label>
+    <button type="submit">Guardar</button>
+    <a href="mascotas.html">Cancelar</a>
+</form>
+
+</main>
+<footer>Práctica IFCD0210 · PHP + MySQL + JavaScript</footer>
+</body>
+</html>
