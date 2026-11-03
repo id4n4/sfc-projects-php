@@ -50,37 +50,38 @@ Sube todo el proyecto a la rama `main` del repositorio de GitHub. Para ello:
 2. **Primera modificación**
 El cliente quire otros colores y has cambiado el archivo **estilos.css** para subir el cambio:
   - Comprueba qué archivos has modificado. Indica también qué te mostraría el comando
-  ```
-  git status //muestra que archivos se han modificado en este caso, 'estilos.css'
-  ```
+    ```
+    git status 
+    // muestra que archivos se han modificado en este caso, 'estilos.css'
+    ```
   - Prepara el archivo estilos.css para guardarlo.
-  ```
-  git add estilos.css
-  ```
+    ```
+    git add estilos.css
+    ```
   - Guarda el cambio con el mensaje: **Cambiar colores de la cabecera**
-  ```
-  git commit -m "Cambiar colores de la cabecera"
-  ```
+    ```
+    git commit -m "Cambiar colores de la cabecera"
+    ```
   - Sube el cambio a GitHub.
-  ```
-  git push origin main
-  ```
+    ```
+    git push origin main
+    ```
 
 
 3. **Segunda modificación**
 Has creado la página nueva **contacto.php** y has añadido su enlace en el menú de **cabecera.php** Para subir los cambios:
   - Prepara los dos archivos, el nuevo y el modificado, para guardarlos.
-  ```
-  git add .
-  ```
+    ```
+    git add .
+    ```
   - Guarda los dos archivos en un único commit con el mensaje: **añadir página de contacto**
-  ```
-  git commit -m "añadir página de contacto"
-  ```
+    ```
+    git commit -m "añadir página de contacto"
+    ```
   - Sube el cambio a GitHub
-  ```
-  git push origin main
-  ```
+    ```
+    git push origin main
+    ```
 
 ## Parte 2 · Preguntas cortas
 Responde de forma breve. En el examen entraran **dos** de estas preguntas
