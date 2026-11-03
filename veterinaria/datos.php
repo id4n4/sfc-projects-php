@@ -21,3 +21,5 @@ function mascotas_mas_visitas(): array
           order by total_visitas desc";
   return (array) conectar()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function listar_mascotas(): array {}
