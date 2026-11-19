@@ -53,16 +53,33 @@ function pintarProductos(productos) {
   })
 }
 
+// Pinta ranking de inspectores
+function pintarRankingInspectores(inspectores) {
+  const inspectorTop = document.getElementById("inspector-top")
+  if (inspectores.length > 0) {
+    inspectorTop.textContent = inspectores[0].nombre
+  } else {
+    inspectorTop.textContent = "–"
+  }
+}
+
 // Pide el resumen a la API
 async function cargarResumen() {
   try {
-    const res = await fetch("api.php?accion=resumen")
-    if (!res.ok) {
-      throw new Error("Error " + res.status)
-    }
-    const datos = await res.json()
+    const [resResumen, resInspectores] = await Promise.all([
+      fetch("api.php?accion=resumen"),
+      fetch("api.php?accion=inspectores"),
+    ])
+    if (!resResumen.ok) throw new Error("Error " + resResumen.status)
+    if (!resInspectores.ok) throw new Error("Error " + resInspectores.status)
+
+    const [datos, inspectores] = await Promise.all([
+      resResumen.json(),
+      resInspectores.json(),
+    ])
     pintarTotales(datos.totales)
     pintarProductos(datos.productos)
+    pintarRankingInspectores(inspectores)
     estado.textContent = ""
   } catch (error) {
     console.error(error)

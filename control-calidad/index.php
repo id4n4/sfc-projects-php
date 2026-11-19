@@ -24,6 +24,11 @@ require "cabecera.php";
     <div class="texto">% de piezas defectuosas</div>
   </div>
 </div>
+<div class="tarjeta">
+  <div class="valor" id="inspector-top">–</div>
+  <div class="texto">Inspector con mejor tasa de defectos</div>
+</div>
+<br>
 
 <section class="panel">
   <h2>Calidad por producto</h2>

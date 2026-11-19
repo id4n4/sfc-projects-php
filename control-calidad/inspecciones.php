@@ -4,9 +4,12 @@ require_once "datos.php";
 
 $resultado = $_GET["resultado"] ?? "";
 $productoId = (int) ($_GET["producto"] ?? 0);
+$desde =  $_GET["desde"] ?? "";
+$hasta =  $_GET["hasta"] ?? "";
+
 if (!in_array($resultado, ["", "Apto", "No apto"])) $resultado = "";
 
-$inspecciones = obtenerInspecciones($pdo, $resultado, $productoId);
+$inspecciones = obtenerInspecciones($pdo, $resultado, $productoId, $desde, $hasta);
 $productos = obtenerProductos($pdo);
 
 
@@ -43,6 +46,14 @@ require "cabecera.php";
           <option value="<?= $p["id"] ?>" <?= $productoId === (int) $p["id"] ? "selected" : "" ?>><?= e($p["nombre"]) ?></option>
         <?php endforeach; ?>
       </select>
+    </div>
+    <div>
+      <label for="desde">desde</label>
+      <input type="date" id="desde" name="desde" value="<?= $desde ?>">
+    </div>
+    <div>
+      <label for="hasta">hasta</label>
+      <input type="date" id="hasta" name="hasta" value="<?= $hasta ?>">
     </div>
     <button type="submit">Filtrar</button>
     <a class="boton" href="nueva_inspeccion.php">+ Nueva inspección</a>

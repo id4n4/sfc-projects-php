@@ -54,7 +54,7 @@ function crearInspector($pdo, $nombre, $email)
 // ---------- Inspecciones ----------
 // Devuelve las inspecciones con el nombre del producto y del inspector.
 // Se pueden filtrar por resultado ('Apto' / 'No apto') y por producto.
-function obtenerInspecciones($pdo, $resultado = "", $productoId = 0)
+function obtenerInspecciones($pdo, $resultado = "", $productoId = 0, $desde = "", $hasta = "")
 {
   $sql = "SELECT i.id, i.fecha, i.lote, i.piezas_revisadas, i.piezas_defectuosas,
                    i.resultado, i.observaciones,
@@ -72,6 +72,14 @@ function obtenerInspecciones($pdo, $resultado = "", $productoId = 0)
   if ($productoId > 0) {
     $sql .= " AND i.producto_id = ?";
     $parametros[] = $productoId;
+  }
+  if ($desde !== "") {
+    $sql .= " AND i.fecha >= ?";
+    $parametros[] = $desde;
+  }
+  if ($hasta !== "") {
+    $sql .= " AND i.fecha <= ?";
+    $parametros[] = $hasta;
   }
   $sql .= " ORDER BY i.fecha DESC, i.id DESC";
 
@@ -136,4 +144,24 @@ function eliminarInspeccion($pdo, $id)
 {
   $sql = $pdo->prepare("DELETE FROM inspecciones WHERE id = ?");
   $sql->execute([$id]);
+}
+
+function obtenerRankingInspectores($pdo)
+{
+  $sql = "SELECT ins.id, ins.nombre,
+                COUNT(i.id) AS inspecciones,
+                COALESCE(SUM(i.piezas_revisadas), 0) AS revisadas,
+                COALESCE(SUM(i.piezas_defectuosas), 0) AS defectuosas,
+                COALESCE(SUM(CASE WHEN i.resultado = 'No apto' THEN 1 ELSE 0 END), 0) AS no_aptas,
+                CASE
+                  WHEN SUM(i.piezas_revisadas) > 0
+                    THEN ROUND(SUM(i.piezas_defectuosas) * 100 / SUM(i.piezas_revisadas), 2)
+                  ELSE 0
+                END AS tasa
+          FROM inspectores ins
+          LEFT JOIN inspecciones i ON i.inspector_id = ins.id
+          GROUP BY ins.id, ins.nombre
+          HAVING COUNT(i.id) > 0
+          ORDER BY tasa ASC, ins.nombre";
+  return $pdo->query($sql)->fetchAll();
 }

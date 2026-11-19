@@ -17,7 +17,9 @@ if ($accion === "resumen") {
 } elseif ($accion === "inspecciones") {
   $productoId = (int) ($_GET["producto"] ?? 0);
   echo json_encode(obtenerInspecciones($pdo, "", $productoId), JSON_UNESCAPED_UNICODE);
+} elseif ($accion === 'inspectores') {
+  echo json_encode(obtenerRankingInspectores($pdo), JSON_UNESCAPED_UNICODE);
 } else {
   http_response_code(400);
-  echo json_encode(["error" => "Acción no válida. Usa accion=resumen o accion=inspecciones"], JSON_UNESCAPED_UNICODE);
+  echo json_encode(["error" => "Acción no válida. Usa accion=resumen, accion=inspecciones o accion=inspectores"], JSON_UNESCAPED_UNICODE);
 }
