@@ -22,4 +22,15 @@ function mascotas_mas_visitas(): array
   return (array) conectar()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function listar_mascotas(): array {}
+function listar_mascotas(): array
+{
+  $sql = "select m.id, m.nombre as mascota, m.especie, m.raza, CONCAT(c.nombre, ' ', c.apellidos), count(v.mascota_id) as totaL_visitas
+          from clientes c
+          join mascotas m 
+          on c.id = m.cliente_id
+          left join visitas v
+          on m.id = v.mascota_id
+          group by v.mascota_id
+          order by m.nombre asc";
+  return (array) conectar()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
