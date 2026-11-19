@@ -1,5 +1,6 @@
 <?php
 // sPell:disable
+
 // datos.php · Todas las consultas SQL de la aplicación
 require_once "conexion.php";
 
@@ -129,4 +130,10 @@ function obtenerResumenPorProducto($pdo)
             GROUP BY p.id, p.codigo, p.nombre
             ORDER BY p.nombre";
   return $pdo->query($sql)->fetchAll();
+}
+
+function eliminarInspeccion($pdo, $id)
+{
+  $sql = $pdo->prepare("DELETE FROM inspecciones WHERE id = ?");
+  $sql->execute([$id]);
 }

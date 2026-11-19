@@ -9,6 +9,8 @@ if (!in_array($resultado, ["", "Apto", "No apto"])) $resultado = "";
 $inspecciones = obtenerInspecciones($pdo, $resultado, $productoId);
 $productos = obtenerProductos($pdo);
 
+
+
 $titulo = "Inspecciones";
 $pagina = "inspecciones";
 require "cabecera.php";
@@ -19,6 +21,10 @@ require "cabecera.php";
   <?php if (isset($_GET["ok"])): ?>
     <p class="mensaje ok">Inspección registrada correctamente.</p>
   <?php endif; ?>
+  <?php if (isset($_GET["deleted"])): ?>
+    <p class="mensaje ok">Inspección eliminada correctamente.</p>
+  <?php endif; ?>
+
 
   <form method="get" class="filtros">
     <div>
@@ -53,6 +59,7 @@ require "cabecera.php";
       <th class="numero">Defectuosas</th>
       <th class="numero">% defectos</th>
       <th>Resultado</th>
+      <th>Acciones</th>
     </tr>
     <?php foreach ($inspecciones as $i): ?>
       <?php $porcentaje = $i["piezas_defectuosas"] * 100 / $i["piezas_revisadas"]; ?>
@@ -65,6 +72,7 @@ require "cabecera.php";
         <td class="numero"><?= $i["piezas_defectuosas"] ?></td>
         <td class="numero"><?= number_format($porcentaje, 1, ",", ".") ?> %</td>
         <td><span class="etiqueta <?= $i["resultado"] === "Apto" ? "apto" : "no-apto" ?>"><?= e($i["resultado"]) ?></span></td>
+        <td><a href="eliminar_inspeccion.php?id=<?= $i["id"] ?>" class="boton eliminar" onclick="return confirm('¿Estás seguro de que quieres eliminar esta inspección?');">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
   </table>
