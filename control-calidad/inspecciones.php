@@ -83,7 +83,14 @@ require "cabecera.php";
         <td class="numero"><?= $i["piezas_defectuosas"] ?></td>
         <td class="numero"><?= number_format($porcentaje, 1, ",", ".") ?> %</td>
         <td><span class="etiqueta <?= $i["resultado"] === "Apto" ? "apto" : "no-apto" ?>"><?= e($i["resultado"]) ?></span></td>
-        <td><a href="eliminar_inspeccion.php?id=<?= $i["id"] ?>" class="boton eliminar" onclick="return confirm('¿Estás seguro de que quieres eliminar esta inspección?');">Eliminar</a></td>
+        <td>
+          <a
+            href="eliminar_inspeccion.php?id=<?= $i["id"] ?>"
+            class="boton eliminar"
+            onclick="return confirm('¿Estás seguro de que quieres eliminar esta inspección?');">
+            Eliminar
+          </a>
+        </td>
       </tr>
     <?php endforeach; ?>
   </table>
